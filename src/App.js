@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import NavigationBar from './Components/NavigationBar';
+import SearchBar from './Components/searchBar';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <SearchBar />
       </header>
     </div>
   );
