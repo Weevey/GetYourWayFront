@@ -5,6 +5,8 @@ import SearchBar from './Components/searchBar';
 import Header from './Components/Header';
 
 
+
+
 function App() {
   return (
     <div >
