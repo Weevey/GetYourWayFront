@@ -5,7 +5,7 @@ import SearchBar from './Components/searchBar';
 import Header from './Components/Header';
 import Map from './Components/Map';
 import MapTitle from './Components/MapTitle';
-
+import Weather from './Components/Weather';
 
 function App() {
   return (
@@ -14,8 +14,10 @@ function App() {
       <Header />
       <div className="App-header">
         <SearchBar />
+        <Weather/>
         <MapTitle />
         <Map />
+              
       </div>
     </>
   );
