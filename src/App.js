@@ -3,6 +3,7 @@ import './App.css';
 import NavigationBar from './Components/NavigationBar';
 import SearchBar from './Components/searchBar';
 import Header from './Components/Header';
+import Map from './Components/Map';
 
 
 function App() {
@@ -10,9 +11,9 @@ function App() {
     <div >
       <Header />
       <SearchBar />
-      
+      <Map />
       <div className="App-header">
-              
+
       </div>
     </div>
   );
