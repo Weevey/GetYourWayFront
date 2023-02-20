@@ -9,15 +9,15 @@ import MapTitle from './Components/MapTitle';
 
 function App() {
   return (
-    <div >
-      <Header />
-      <SearchBar />
-      <MapTitle />
-      <Map />
-      <div className="App-header">
 
+    <>
+      <Header />
+      <div className="App-header">
+        <SearchBar />
+        <MapTitle />
+        <Map />
       </div>
-    </div>
+    </>
   );
 }
 

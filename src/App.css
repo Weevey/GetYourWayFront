@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -72,5 +73,7 @@
 
 .map-title {
   background-color: #282c34;
-  color: white
+  color: white;
+  text-align: left;
+  
 }
