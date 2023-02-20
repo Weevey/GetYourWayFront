@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "count": 1,
+    "links": {
+      "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?destinationLocationCode=RAK&max=1&adults=1&originLocationCode=LGW&departureDate=2023-02-25"
+    }
+  },
+  "data": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2023-02-21",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT18H25M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "LGW",
+                "terminal": "S",
+                "at": "2023-02-25T16:35:00"
+              },
+              "arrival": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2023-02-25T19:10:00"
+              },
+              "carrierCode": "TP",
+              "number": "1337",
+              "aircraft": { "code": "32Q" },
+              "operating": { "carrierCode": "TP" },
+              "duration": "PT2H35M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LIS",
+                "terminal": "1",
+                "at": "2023-02-26T09:25:00"
+              },
+              "arrival": {
+                "iataCode": "RAK",
+                "terminal": "1",
+                "at": "2023-02-26T12:00:00"
+              },
+              "carrierCode": "TP",
+              "number": "1452",
+              "aircraft": { "code": "E90" },
+              "operating": { "carrierCode": "NI" },
+              "duration": "PT1H35M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "EUR",
+        "total": "104.64",
+        "base": "13.00",
+        "fees": [
+          { "amount": "0.00", "type": "SUPPLIER" },
+          { "amount": "0.00", "type": "TICKETING" }
+        ],
+        "grandTotal": "104.64",
+        "additionalServices": [{ "amount": "39.00", "type": "CHECKED_BAGS" }]
+      },
+      "pricingOptions": {
+        "fareType": ["PUBLISHED"],
+        "includedCheckedBagsOnly": false
+      },
+      "validatingAirlineCodes": ["TP"],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": { "currency": "EUR", "total": "104.64", "base": "13.00" },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "U02DSC0H",
+              "brandedFare": "DISCOUNT",
+              "class": "U",
+              "includedCheckedBags": { "quantity": 0 }
+            },
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "U02DSC0H",
+              "brandedFare": "DISCOUNT",
+              "class": "U",
+              "includedCheckedBags": { "quantity": 0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dictionaries": {
+    "locations": {
+      "LIS": { "cityCode": "LIS", "countryCode": "PT" },
+      "LGW": { "cityCode": "LON", "countryCode": "GB" },
+      "RAK": { "cityCode": "RAK", "countryCode": "MA" }
+    },
+    "aircraft": { "32Q": "AIRBUS A321NEO", "E90": "EMBRAER 190" },
+    "currencies": { "EUR": "EURO" },
+    "carriers": { "NI": "PORTUGALIA", "TP": "TAP PORTUGAL" }
+  }
+}

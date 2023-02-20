@@ -4,6 +4,8 @@ import NavigationBar from './Components/NavigationBar';
 import SearchBar from './Components/searchBar';
 import Header from './Components/Header';
 
+import Weather from './Components/Weather';
+
 
 function App() {
   return (
@@ -12,7 +14,7 @@ function App() {
       <SearchBar />
       
       <div className="App-header">
-              
+              <Weather/>
       </div>
     </div>
   );
