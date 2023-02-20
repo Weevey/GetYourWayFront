@@ -69,3 +69,8 @@
 .search-button {
   padding: 12px 20px;
 }
+
+.map-title {
+  background-color: #282c34;
+  color: white
+}
