@@ -57,6 +57,7 @@
   font-family: "SkyMedium";
   padding: 5px;
   padding-left: 20px;
+  display: inline-block;
 }
 
 .gradient-text {
