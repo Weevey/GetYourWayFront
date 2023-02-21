@@ -1,5 +1,5 @@
 import React from "react";
-import NavigationBar from "./NavigationBar";
+
 import '../Components/css/fonts/sky-medium.woff2';
 import '../Components/css/fonts/sky-regular.woff2'
 
@@ -11,7 +11,7 @@ const Header = () => {
           <a href="/">
             <h1 className="gradient-text">GetYourWay</h1>
           </a>
-          <NavigationBar />
+          
         </div>
       </div>
     </header>
