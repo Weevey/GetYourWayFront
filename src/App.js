@@ -15,7 +15,7 @@ function App() {
         <br></br>
       </Row>
       <div className="App-body">
-        <div className="search-container">
+        {/* <div className="search-container">
           <Container fluid>
             <Row>
               <Col md={4}>
@@ -29,10 +29,16 @@ function App() {
               </Col>
             </Row>
           </Container>
-        </div>
+        </div> */}
  
-
+        <Container fluid>
+            <Row>
+              <Col md={12}>
         <Weather />
+        </Col>
+        </Row>
+        </Container>
+
         <Container fluid>
             <Row><MapTitle /></Row>
             </Container>
