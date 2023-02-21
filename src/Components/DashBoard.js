@@ -3,17 +3,51 @@ import Weather from "./Weather";
 import MapTitle from "./MapTitle";
 import Map from "./Map";
 import SearchBar from "./searchBar";
+import { Col, Row, Container } from "react-bootstrap";
 
 const DashBoard = () => {
   return (
-    <div className="App-body">
-      <div className="search-container">
-        <SearchBar labelName="Start Destination" />
-        <SearchBar labelName="End Destination" />
+    <div>
+      <Row>
+        <br></br>
+      </Row>
+      <div className="App-body">
+        {/* <div className="search-container">
+          <Container fluid>
+            <Row>
+              <Col md={4}>
+                <SearchBar labelName="Start Destination" />
+              </Col>
+              <Col md={4}>
+                <SearchBar labelName="End Destination" />
+              </Col>
+              <Col md={4}>
+                <SearchBar labelName="End Destination" />
+              </Col>
+            </Row>
+          </Container>
+        </div> */}
+
+        <Container fluid>
+          <Row>
+            <Col md={12}>
+              <Weather />
+            </Col>
+          </Row>
+        </Container>
+
+        <Container fluid>
+          <Row>
+            <MapTitle />
+          </Row>
+        </Container>
+        <Container fluid>
+          <Map />
+        </Container>
       </div>
-      <Weather />
-      <MapTitle />
-      <Map />
+      <Row>
+        <br></br>
+      </Row>
     </div>
   );
 };
