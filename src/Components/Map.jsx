@@ -7,10 +7,11 @@ import {
   Marker,
   Polyline,
 } from "react-leaflet";
-import "../Components/leaflet.css";
+import "./leaflet.css";
 import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import { mapData } from "./map-helper";
 
 let DefaultIcon = Leaflet.icon({
   iconUrl: icon,
@@ -23,8 +24,11 @@ Leaflet.Marker.prototype.options.icon = DefaultIcon;
 
 const Map = () => {
   //JOURNEY START AND JOURNEY END
-  let journeyStart = [51.505, -0.09];
-  let journeyEnd = [45.505, -0.09];
+  // let journeyStart = [51.505, -0.09];
+  // let journeyEnd = [45.505, -0.09];
+  const index = 2;
+  let journeyStart = mapData[index].journeyStart;
+  let journeyEnd = mapData[index].journeyEnd;
 
   // POLYLINE BETTWEEN END AND START
   const positions = [journeyStart, journeyEnd];
@@ -41,7 +45,7 @@ const Map = () => {
   return (
     <MapContainer
       center={journeyStart}
-      zoom={13}
+      zoom={2}
       scrollWheelZoom={false}
       className="map-container"
     >

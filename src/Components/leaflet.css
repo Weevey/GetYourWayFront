@@ -1,15 +1,11 @@
-
 .leaflet-container {
   height: 500px;
   width: 500px;
   border-radius: 10px;
   border-style: solid;
   border-color: rgb(255, 255, 255);
-  
 }
 
 .map-container {
   box-shadow: 0 0 80px rgba(255, 255, 255, 0.8);
 }
-
-

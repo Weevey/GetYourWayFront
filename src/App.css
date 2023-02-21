@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  
 }
 
 .App-logo {
@@ -14,13 +13,12 @@
   }
 }
 
-.App-header {
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -57,10 +55,12 @@
   width: 100%;
   padding: 12px 12px 12px 12px;
   background-color: #282c34;
+  flex-direction: column;
+  display: flex;
+  width: 250px;
 }
 
 .search-field {
-  width: 30%;
   margin-left: 20px;
   padding: 12px 20px;
   margin: 8px 0;
@@ -75,5 +75,24 @@
   background-color: #282c34;
   color: white;
   text-align: left;
-  
+}
+
+.search-container {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: Poiret One;
+  text-align: center;
+  font-size: 36px;
+  text-align: left;
+  margin: 1rem;
+  color: black;
+}
+
+a {
+  text-decoration: none;
 }
