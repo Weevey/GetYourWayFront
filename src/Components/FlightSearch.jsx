@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import data from '../data/airports.json';
 
 const FlightSearchForm = () => {
+
+  
   const [departureValue, setdepartureValue] = useState('');
   const [destinationValue, setDestinationValue] = useState('');
   const [departureSuggestions, setdepartureSuggestions] = useState([]);

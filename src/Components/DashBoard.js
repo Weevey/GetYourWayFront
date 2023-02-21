@@ -4,6 +4,7 @@ import MapTitle from "./MapTitle";
 import Map from "./Map";
 import SearchBar from "./searchBar";
 import { Col, Row, Container } from "react-bootstrap";
+import FlightSearchForm from "./FlightSearch";
 
 const DashBoard = () => {
   return (
@@ -43,10 +44,12 @@ const DashBoard = () => {
         </Container>
         <Container fluid>
           <Map />
+          <br/>
+          <FlightSearchForm />
         </Container>
       </div>
       <Row>
-        <br></br>
+        <br/>
       </Row>
     </div>
   );
