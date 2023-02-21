@@ -5,21 +5,46 @@ import Map from "./Components/Map";
 import MapTitle from "./Components/MapTitle";
 import Weather from "./Components/Weather";
 
+import { Col, Row, Container } from "react-bootstrap";
 
 function App() {
   return (
     <>
       <Header />
+      <Row>
+        <br></br>
+      </Row>
       <div className="App-body">
         <div className="search-container">
-          <SearchBar labelName="Start Destination" />
-          <SearchBar labelName="End Destination" />
+          <Container fluid>
+            <Row>
+              <Col md={4}>
+                <SearchBar labelName="Start Destination" />
+              </Col>
+              <Col md={4}>
+                <SearchBar labelName="End Destination" />
+              </Col>
+              <Col md={4}>
+                <SearchBar labelName="End Destination" />
+              </Col>
+            </Row>
+          </Container>
         </div>
+ 
 
         <Weather />
-        <MapTitle />
+        <Container fluid>
+            <Row><MapTitle /></Row>
+            </Container>
+            <Container fluid>
         <Map />
+        </Container>
       </div>
+      <Row>
+        <br></br>
+      </Row>
+
+
     </>
   );
 }
