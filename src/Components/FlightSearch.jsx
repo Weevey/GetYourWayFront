@@ -16,9 +16,13 @@ const FlightSearchForm = () => {
     setdepartureValue(value);
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, 'gi');
+      
       return airport.city.match(regex) || airport.code.match(regex);
+      
+      
     });
     setdepartureSuggestions(matches.slice(0, 5)); // limit to first 5 matches
+ 
   };
 
   const handleDestinationChange = (event) => {
@@ -26,18 +30,26 @@ const FlightSearchForm = () => {
     setDestinationValue(value);
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, 'gi');
-      return airport.city.match(regex) || airport.code.match(regex);
+      return airport.city.match(regex) || airport.code.match(regex) || airport.lat.match(regex) || airport.lon.match(regex);
     });
     setDestinationSuggestions(matches.slice(0, 5)); // limit to first 5 matches
   };
 
   const handledepartureSuggestionClick = (airport) => {
     setdepartureValue(airport.city);
+    const departurelat = airport.lat;
+    const departurelon = airport.lon;
+    console.log(departurelat);
+    console.log(departurelon);
     setdepartureSuggestions([]);
   };
 
   const handleDestinationSuggestionClick = (airport) => {
     setDestinationValue(airport.city);
+    const destinationlat = airport.lat;
+    const destinationlon = airport.lon;
+    console.log(destinationlat);
+    console.log(destinationlon);
     setDestinationSuggestions([]);
   };
 
@@ -48,6 +60,8 @@ const FlightSearchForm = () => {
   const handlePassengersChange = (event) => {
     setPassengersValue(event.target.value);
   };
+
+  
 
   return (
     <div>
@@ -100,7 +114,16 @@ const FlightSearchForm = () => {
       <br />
       <button>Search</button>
     </div>
+  
   );
+  
 };
 
+export const departlonlat = [FlightSearchForm.departlon, FlightSearchForm.departlat];
+
+console.log(departlonlat);
+
+export const destinationlonlat = [FlightSearchForm.destinationlon, FlightSearchForm.destinationlat];
+
+console.log(destinationlonlat);
 export default FlightSearchForm;
