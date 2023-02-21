@@ -2,8 +2,8 @@ import React from "react";
 
 const MapTitle = () => {
   return (
-    <div className="map-title">
-      <h2>Journey overview</h2>
+    <div className="gradient-text">
+      <h2>Journey Overview</h2>
     </div>
   );
 };

@@ -14,13 +14,14 @@
 }
 
 .App-body {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  font-family: "SkyRegular";
 }
 
 .App-link {
@@ -42,8 +43,47 @@
 }
 
 .header-style {
-  background-color: azure;
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff9e00 0%,
+    #f00 25%,
+    #b5007d 50%,
+    #21429c 75%,
+    #0071ff 100%
+  );
+  border-image-slice: 1;
+  width: 100%;
+  font-family: "SkyMedium";
+  padding: 5px;
+  padding-left: 20px;
 }
+
+.gradient-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  color: #4a4a4a;
+  background-image: -webkit-linear-gradient(
+    left,
+    #ff9e00,
+    red 35%,
+    #b5007d 60%,
+    #21429c 85%,
+    #0071ff
+  );
+  background-size: 100%;
+}
+
+/* .logo {
+  /* font-family: Poiret One; */
+/* text-align: center;
+  font-size: 36px;
+  text-align: left;
+  margin: 1rem;
+  color: black;
+  font-family: "SkyMedium";
+} */
 
 .navigation-bar {
   text-align: right;
@@ -82,15 +122,6 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-}
-
-.logo {
-  font-family: Poiret One;
-  text-align: center;
-  font-size: 36px;
-  text-align: left;
-  margin: 1rem;
-  color: black;
 }
 
 a {

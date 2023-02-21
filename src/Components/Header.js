@@ -1,6 +1,7 @@
 import React from "react";
-// import logo from '../Images/GetYourWay.gif'
 import NavigationBar from "./NavigationBar";
+import '../Components/css/fonts/sky-medium.woff2';
+import '../Components/css/fonts/sky-regular.woff2'
 
 const Header = () => {
   return (
@@ -8,8 +9,7 @@ const Header = () => {
       <div>
         <div className="row">
           <a href="/">
-            {/* <img src={logo} width="300px" className="header-logo"/> */}
-            <h1 className="logo">GetYourWay</h1>
+            <h1 className="gradient-text">GetYourWay</h1>
           </a>
           <NavigationBar />
         </div>
