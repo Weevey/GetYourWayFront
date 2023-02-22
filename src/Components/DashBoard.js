@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Weather from "./Weather";
+
 import MapTitle from "./MapTitle";
 import Map from "./Map";
-import SearchBar from "./searchBar";
+
 import { Col, Row, Container } from "react-bootstrap";
 import FlightSearchForm from "./FlightSearch";
 
