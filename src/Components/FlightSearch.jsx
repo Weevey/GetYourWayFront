@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import data from "../data/airports.json";
-import Weather from "./Weather";
+// import Weather from "./Weather";
 
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
@@ -153,7 +153,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       />
       <br />
       <button onClick={handleSearch}>Search</button>
-      {searchTerm && <Weather searchTerm={searchTerm} />}
+      
     </div>
   );
 };
