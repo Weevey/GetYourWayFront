@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import data from "../data/airports.json";
 import Weather from "./Weather";
-
+import axios from "axios";
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
-
   const [searchTerm, setSearchTerm] = useState("");
-
-
-
   const [departureValue, setdepartureValue] = useState("");
   const [destinationValue, setDestinationValue] = useState("");
   const [departureSuggestions, setdepartureSuggestions] = useState([]);
@@ -22,17 +18,15 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, "gi");
 
-      // return airport.city.match(regex) || airport.code.match(regex);
       return airport.name.match(regex) || airport.code.match(regex);
     });
     setdepartureSuggestions(matches.slice(0, 5)); // limit to first 5 matches
   };
 
   const handleDestinationChange = (event) => {
-    
     const value = event.target.value;
     setDestinationValue(value);
-    
+
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, "gi");
       return airport.name.match(regex) || airport.code.match(regex);
@@ -44,15 +38,12 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setdepartureValue(airport.name);
     const departurelat = airport.lat;
     const departurelon = airport.lon;
-    console.log(departurelat);
-    console.log(departurelon);
 
     const leafletexportlatdeparture = parseFloat(departurelat);
     const leafletexportlondeparture = parseFloat(departurelon);
 
     const departure = [leafletexportlatdeparture, leafletexportlondeparture];
     onDepartChange(departure); // added JG
-    console.log(departure);
 
     setdepartureSuggestions([]);
   };
@@ -61,7 +52,6 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setDestinationValue(airport.name);
     const destinationlat = airport.lat;
     const destinationlon = airport.lon;
-
 
     const leafletexportdestinationlat = parseFloat(destinationlat);
     const leafletexportdestinationlon = parseFloat(destinationlon);
@@ -75,7 +65,6 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
     setSearchTerm(airport.city);
 
-
     setDestinationSuggestions([]);
   };
 
@@ -88,15 +77,32 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   };
 
   const handleSearch = () => {
-    // setSearchTerm(airport.city);
-   
+    const token = sessionStorage.getItem("jwt");
+    const url = "http://18.132.251.114:9090/flight";
+
+    const payload = {
+      departure: "LHR",
+      destination: "ABA",
+      date: "2023-02-23",
+      adults: "1",
+    };
+
+    axios
+      .post(url, payload, { headers: { Authorization: token } })
+      .then((response) => {
+        console.log(response.data);
+        console.log(payload);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div>
-      <label htmlFor="departure-input">Departure:</label>
+      <label htmlFor="departure">Departure:</label>
       <input
-        id="departure-input"
+        id="departure"
         type="text"
         value={departureValue}
         onChange={handledepartureChange}
@@ -114,9 +120,9 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
         </ul>
       )}
 
-      <label htmlFor="destination-input">Destination:</label>
+      <label htmlFor="destination">Destination:</label>
       <input
-        id="destination-input"
+        id="destination"
         type="text"
         value={destinationValue}
         onChange={handleDestinationChange}
@@ -134,17 +140,17 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
         </ul>
       )}
 
-      <label htmlFor="date-input">Date:</label>
+      <label htmlFor="date">Date:</label>
       <input
-        id="date-input"
+        id="date"
         type="date"
         value={dateValue}
         onChange={handleDateChange}
       />
 
-      <label htmlFor="passengers-input">Passengers:</label>
+      <label htmlFor="adults">Passengers:</label>
       <input
-        id="passengers-input"
+        id="adults"
         type="number"
         min="1"
         max="10"
@@ -158,8 +164,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   );
 };
 
-
 export const WeatherCity = FlightSearchForm.WeatherCity;
-
+export let searchCity = FlightSearchForm.searCity;
 
 export default FlightSearchForm;
