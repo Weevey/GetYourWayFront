@@ -11,9 +11,6 @@ import "./leaflet.css";
 import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import { mapData } from "./map-helper";
-import { LeafletDepart } from "./FlightSearch";
-import { LeafletDestination } from "./FlightSearch";
 
 let DefaultIcon = Leaflet.icon({
   iconUrl: icon,
@@ -21,18 +18,16 @@ let DefaultIcon = Leaflet.icon({
   iconSize: [24, 36],
   iconAnchor: [12, 36],
 });
-
+// created an on change, passed to flight search and then passed to map
 Leaflet.Marker.prototype.options.icon = DefaultIcon;
 
-const Map = () => {
+const Map = ({ departValue, destinationValue }) => {
   //JOURNEY START AND JOURNEY END
-  // let journeyStart = [51.505, -0.09];
-  // let journeyEnd = [45.505, -0.09];
-  const index = 2;
-  let journeyStart = mapData[index].journeyStart;
-  let journeyEnd = mapData[index].journeyEnd;
+  console.log(departValue);
+  let journeyStart = departValue;
+  let journeyEnd = destinationValue;
 
-  // POLYLINE BETTWEEN END AND START
+  // POLYLINE BETWEEN END AND START
   const positions = [journeyStart, journeyEnd];
 
   const pathOptions = {

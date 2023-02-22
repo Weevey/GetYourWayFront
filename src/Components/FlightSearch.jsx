@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import data from "../data/airports.json";
 import Weather from "./Weather";
 
-const FlightSearchForm = () => {
+
+const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
+
   const [searchTerm, setSearchTerm] = useState("");
+
 
 
   const [departureValue, setdepartureValue] = useState("");
@@ -48,6 +51,7 @@ const FlightSearchForm = () => {
     const leafletexportlondeparture = parseFloat(departurelon);
 
     const departure = [leafletexportlatdeparture, leafletexportlondeparture];
+    onDepartChange(departure); // added JG
     console.log(departure);
 
     setdepartureSuggestions([]);
@@ -57,7 +61,7 @@ const FlightSearchForm = () => {
     setDestinationValue(airport.name);
     const destinationlat = airport.lat;
     const destinationlon = airport.lon;
-   
+
 
     const leafletexportdestinationlat = parseFloat(destinationlat);
     const leafletexportdestinationlon = parseFloat(destinationlon);
@@ -66,8 +70,11 @@ const FlightSearchForm = () => {
       leafletexportdestinationlon,
     ];
 
+    onDestinationChange(destination); // added JG
     console.log(destination);
+
     setSearchTerm(airport.city);
+
 
     setDestinationSuggestions([]);
   };
@@ -151,8 +158,8 @@ const FlightSearchForm = () => {
   );
 };
 
+
 export const WeatherCity = FlightSearchForm.WeatherCity;
-export const LeafletDepart = FlightSearchForm.departure;
-export const LeafletDestination = FlightSearchForm.destination;
+
 
 export default FlightSearchForm;
