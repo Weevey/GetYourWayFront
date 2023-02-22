@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import data from '../data/airports.json';
+import Weather from './Weather';
 
 const FlightSearchForm = () => {
 
@@ -17,7 +18,8 @@ const FlightSearchForm = () => {
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, 'gi');
       
-      return airport.city.match(regex) || airport.code.match(regex);
+      // return airport.city.match(regex) || airport.code.match(regex);
+      return airport.name.match(regex) || airport.code.match(regex);
       
       
     });
@@ -30,13 +32,14 @@ const FlightSearchForm = () => {
     setDestinationValue(value);
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, 'gi');
-      return airport.city.match(regex) || airport.code.match(regex) || airport.lat.match(regex) || airport.lon.match(regex);
+      return airport.name.match(regex) || airport.code.match(regex);
+      < Weather />
     });
     setDestinationSuggestions(matches.slice(0, 5)); // limit to first 5 matches
   };
 
   const handledepartureSuggestionClick = (airport) => {
-    setdepartureValue(airport.city);
+    setdepartureValue(airport.name);
     const departurelat = airport.lat;
     const departurelon = airport.lon;
     console.log(departurelat);
@@ -45,7 +48,7 @@ const FlightSearchForm = () => {
   };
 
   const handleDestinationSuggestionClick = (airport) => {
-    setDestinationValue(airport.city);
+    setDestinationValue(airport.name);
     const destinationlat = airport.lat;
     const destinationlon = airport.lon;
     console.log(destinationlat);
@@ -76,7 +79,7 @@ const FlightSearchForm = () => {
         <ul>
           {departureSuggestions.map((airport) => (
             <li key={airport.code} onClick={() => handledepartureSuggestionClick(airport)}>
-              {airport.city} ({airport.code})
+              {airport.name} ({airport.code})
             </li>
           ))}
         </ul>
@@ -93,7 +96,7 @@ const FlightSearchForm = () => {
         <ul>
           {destinationSuggestions.map((airport) => (
             <li key={airport.code} onClick={() => handleDestinationSuggestionClick(airport)}>
-              {airport.city} ({airport.code})
+              {airport.name} ({airport.code})
             </li>
           ))}
         </ul>
