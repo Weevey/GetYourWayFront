@@ -7,13 +7,13 @@ import { Col, Row, Container } from "react-bootstrap";
 import FlightSearchForm from "./FlightSearch";
 
 const DashBoard = () => {
-  const [arrivalValue, setArrivalValue] = useState([55.4, 0.2]); // default
+  const [departValue, setDepartValue] = useState([55.4, 0.2]); // default
   const [destinationValue, setDestinationValue] = useState([55.4, 0.2]); // default
 
-  const onArrivalChange = (value) => {
+  const onDepartChange = (value) => {
     //oninput change function
     console.log("On Input Change called");
-    setArrivalValue(value); // setinput value
+    setDepartValue(value); // setinput value
   };
 
   const onDestinationChange = (value) => {
@@ -56,13 +56,10 @@ const DashBoard = () => {
           </Row>
         </Container>
         <Container fluid>
-          <Map
-            arrivalValue={arrivalValue}
-            destinationValue={destinationValue}
-          />
+          <Map departValue={departValue} destinationValue={destinationValue} />
           <br />
           <FlightSearchForm
-            onArrivalChange={onArrivalChange}
+            onDepartChange={onDepartChange}
             onDestinationChange={onDestinationChange} //passing down onchange
           />
         </Container>

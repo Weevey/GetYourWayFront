@@ -21,10 +21,10 @@ let DefaultIcon = Leaflet.icon({
 // created an on change, passed to flight search and then passed to map
 Leaflet.Marker.prototype.options.icon = DefaultIcon;
 
-const Map = ({ arrivalValue, destinationValue }) => {
+const Map = ({ departValue, destinationValue }) => {
   //JOURNEY START AND JOURNEY END
-  console.log(arrivalValue);
-  let journeyStart = arrivalValue;
+  console.log(departValue);
+  let journeyStart = departValue;
   let journeyEnd = destinationValue;
 
   // POLYLINE BETWEEN END AND START

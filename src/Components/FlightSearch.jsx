@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import data from "../data/airports.json";
 
-const FlightSearchForm = ({ onArrivalChange, onDestinationChange }) => {
+const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   //addition JG
   const [departureValue, setdepartureValue] = useState("");
   const [destinationValue, setDestinationValue] = useState("");
@@ -43,7 +43,7 @@ const FlightSearchForm = ({ onArrivalChange, onDestinationChange }) => {
     const leafletexportlondeparture = parseFloat(departurelon);
 
     const departure = [leafletexportlatdeparture, leafletexportlondeparture];
-    onArrivalChange(departure); // added JG
+    onDepartChange(departure); // added JG
     console.log(departure);
 
     setdepartureSuggestions([]);
