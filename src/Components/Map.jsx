@@ -12,10 +12,6 @@ import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { mapData } from "./map-helper";
-import { destinationlonlat } from "./FlightSearch";
-import { departlonlat } from "./FlightSearch";
-
-//icon for marker
 
 let DefaultIcon = Leaflet.icon({
   iconUrl: icon,
