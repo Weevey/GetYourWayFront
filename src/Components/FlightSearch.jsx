@@ -9,8 +9,15 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const [destinationValue, setDestinationValue] = useState("");
   const [departureSuggestions, setdepartureSuggestions] = useState([]);
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
-  const [dateValue, setDateValue] = useState("");
-  const [passengersValue, setPassengersValue] = useState("");
+
+  // Information from user interactions and called into the axon request.
+  const [flightDate, setFlightDate] = useState("");
+  const [flightAdultCount, setFlightAdultCount] = useState("");
+  const [flightDepartureCode, setFlightDepartureCode] = useState("");
+  const [flightDestinationCode, setFlightDestinationCode] = useState("");
+  // end section.
+  
+   
 
   const handledepartureChange = (event) => {
     const value = event.target.value;
@@ -36,20 +43,22 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
   const handledepartureSuggestionClick = (airport) => {
     setdepartureValue(airport.name);
+    setFlightDepartureCode(airport.code);
     const departurelat = airport.lat;
     const departurelon = airport.lon;
-
     const leafletexportlatdeparture = parseFloat(departurelat);
     const leafletexportlondeparture = parseFloat(departurelon);
-
     const departure = [leafletexportlatdeparture, leafletexportlondeparture];
     onDepartChange(departure); // added JG
+
+   
 
     setdepartureSuggestions([]);
   };
 
   const handleDestinationSuggestionClick = (airport) => {
     setDestinationValue(airport.name);
+    setFlightDestinationCode(airport.code);
     const destinationlat = airport.lat;
     const destinationlon = airport.lon;
 
@@ -69,11 +78,11 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   };
 
   const handleDateChange = (event) => {
-    setDateValue(event.target.value);
+    setFlightDate(event.target.value);
   };
 
   const handlePassengersChange = (event) => {
-    setPassengersValue(event.target.value);
+    setFlightAdultCount(event.target.value);
   };
 
   const handleSearch = () => {
@@ -81,10 +90,10 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     const url = "http://18.132.251.114:9090/flight";
 
     const payload = {
-      departure: "LHR",
-      destination: "ABA",
-      date: "2023-02-23",
-      adults: "1",
+      departure: flightDepartureCode,
+      destination: flightDestinationCode,
+      date: flightDate,
+      adults: flightAdultCount,
     };
 
     axios
@@ -100,67 +109,67 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
   return (
     <div>
-      <label htmlFor="departure">Departure:</label>
-      <input
-        id="departure"
-        type="text"
-        value={departureValue}
-        onChange={handledepartureChange}
-      />
-      {departureSuggestions.length > 0 && (
-        <ul>
-          {departureSuggestions.map((airport) => (
-            <li
-              key={airport.code}
-              onClick={() => handledepartureSuggestionClick(airport)}
-            >
-              {airport.name} ({airport.code})
-            </li>
-          ))}
-        </ul>
-      )}
+    <label htmlFor="departure-input">Departure:</label>
+    <input
+      id="departure-input"
+      type="text"
+      value={departureValue}
+      onChange={handledepartureChange}
+    />
+    {departureSuggestions.length > 0 && (
+      <ul>
+        {departureSuggestions.map((airport) => (
+          <li
+            key={airport.code}
+            onClick={() => handledepartureSuggestionClick(airport)}
+          >
+            {airport.name} ({airport.code})
+          </li>
+        ))}
+      </ul>
+    )}
 
-      <label htmlFor="destination">Destination:</label>
-      <input
-        id="destination"
-        type="text"
-        value={destinationValue}
-        onChange={handleDestinationChange}
-      />
-      {destinationSuggestions.length > 0 && (
-        <ul>
-          {destinationSuggestions.map((airport) => (
-            <li
-              key={airport.code}
-              onClick={() => handleDestinationSuggestionClick(airport)}
-            >
-              {airport.name} ({airport.code})
-            </li>
-          ))}
-        </ul>
-      )}
+    <label htmlFor="destination-input">Destination:</label>
+    <input
+      id="destination-input"
+      type="text"
+      value={destinationValue}
+      onChange={handleDestinationChange}
+    />
+    {destinationSuggestions.length > 0 && (
+      <ul>
+        {destinationSuggestions.map((airport) => (
+          <li
+            key={airport.code}
+            onClick={() => handleDestinationSuggestionClick(airport)}
+          >
+            {airport.name} ({airport.code})
+          </li>
+        ))}
+      </ul>
+    )}
 
-      <label htmlFor="date">Date:</label>
-      <input
-        id="date"
-        type="date"
-        value={dateValue}
-        onChange={handleDateChange}
-      />
+    <label htmlFor="date-input">Date:</label>
+    <input
+      id="date-input"
+      type="date"
+      value={flightDate}
+      onChange={handleDateChange}
+    />
 
-      <label htmlFor="adults">Passengers:</label>
-      <input
-        id="adults"
-        type="number"
-        min="1"
-        max="10"
-        value={passengersValue}
-        onChange={handlePassengersChange}
-      />
-      <br />
-      <button onClick={handleSearch}>Search</button>
-      {searchTerm && <Weather searchTerm={searchTerm} />}
-    </div>
+    <label htmlFor="passengers-input">Passengers:</label>
+    <input
+      id="passengers-input"
+      type="number"
+      min="1"
+      max="10"
+      value={flightAdultCount}
+      onChange={handlePassengersChange}
+    />
+    <br />
+    <button onClick={handleSearch}>Search</button>
+    {searchTerm && <Weather searchTerm={searchTerm} />}
+  </div>
   );
 };
 
