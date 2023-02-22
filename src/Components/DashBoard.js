@@ -28,30 +28,14 @@ const DashBoard = () => {
         <br></br>
       </Row>
       <div className="App-body">
-        {/* <div className="search-container">
-          <Container fluid>
-            <Row>
-              <Col md={4}>
-                <SearchBar labelName="Start Destination" />
-              </Col>
-              <Col md={4}>
-                <SearchBar labelName="End Destination" />
-              </Col>
-              <Col md={4}>
-                <SearchBar labelName="End Destination" />
-              </Col>
-            </Row>
-          </Container>
-        </div> */}
-
         <Container fluid>
           <Row>
-
-
             <Col md={12}>
-            <FlightSearchForm />
+            <FlightSearchForm
+            onDepartChange={onDepartChange}
+            onDestinationChange={onDestinationChange} //passing down onchange
+          />
             </Col>
-
           </Row>
         </Container>
 
@@ -61,17 +45,8 @@ const DashBoard = () => {
           </Row>
         </Container>
         <Container fluid>
-
           <Map departValue={departValue} destinationValue={destinationValue} />
-          <br />
-          <FlightSearchForm
-            onDepartChange={onDepartChange}
-            onDestinationChange={onDestinationChange} //passing down onchange
-          />
-
-         
           
-
         </Container>
       </div>
       <Row>
