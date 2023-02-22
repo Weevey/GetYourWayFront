@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import data from "../data/airports.json";
-
-
+import Weather from "./Weather";
 
 const FlightSearchForm = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+
   const [departureValue, setdepartureValue] = useState("");
   const [destinationValue, setDestinationValue] = useState("");
   const [departureSuggestions, setdepartureSuggestions] = useState([]);
@@ -24,8 +26,10 @@ const FlightSearchForm = () => {
   };
 
   const handleDestinationChange = (event) => {
+    
     const value = event.target.value;
     setDestinationValue(value);
+    
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, "gi");
       return airport.name.match(regex) || airport.code.match(regex);
@@ -53,8 +57,7 @@ const FlightSearchForm = () => {
     setDestinationValue(airport.name);
     const destinationlat = airport.lat;
     const destinationlon = airport.lon;
-
-    
+   
 
     const leafletexportdestinationlat = parseFloat(destinationlat);
     const leafletexportdestinationlon = parseFloat(destinationlon);
@@ -64,7 +67,7 @@ const FlightSearchForm = () => {
     ];
 
     console.log(destination);
-    
+    setSearchTerm(airport.city);
 
     setDestinationSuggestions([]);
   };
@@ -75,6 +78,11 @@ const FlightSearchForm = () => {
 
   const handlePassengersChange = (event) => {
     setPassengersValue(event.target.value);
+  };
+
+  const handleSearch = () => {
+    // setSearchTerm(airport.city);
+   
   };
 
   return (
@@ -137,11 +145,13 @@ const FlightSearchForm = () => {
         onChange={handlePassengersChange}
       />
       <br />
-      <button>Search</button>
+      <button onClick={handleSearch}>Search</button>
+      {searchTerm && <Weather searchTerm={searchTerm} />}
     </div>
   );
 };
 
+export const WeatherCity = FlightSearchForm.WeatherCity;
 export const LeafletDepart = FlightSearchForm.departure;
 export const LeafletDestination = FlightSearchForm.destination;
 
