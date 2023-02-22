@@ -31,9 +31,7 @@ const DashBoard = () => {
 
         <Container fluid>
           <Row>
-            <Col md={12}>
-              <Weather />
-            </Col>
+            <Col md={12}>{/* <Weather /> */}</Col>
           </Row>
         </Container>
 
@@ -44,12 +42,12 @@ const DashBoard = () => {
         </Container>
         <Container fluid>
           <Map />
-          <br/>
+          <br />
           <FlightSearchForm />
         </Container>
       </div>
       <Row>
-        <br/>
+        <br />
       </Row>
     </div>
   );

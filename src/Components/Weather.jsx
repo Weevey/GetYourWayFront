@@ -3,9 +3,6 @@ import { ReactDOM } from "react";
 import axios from "axios";
 import { SERVER_URL } from "./constants";
 
-
-
-
 function Weather() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
