@@ -1,21 +1,28 @@
-import React from 'react'
-import logo from '../Images/GetYourWay.gif'
-import NavigationBar from './NavigationBar'
+import React from "react";
+
+import "../Components/css/fonts/sky-medium.woff2";
+import "../Components/css/fonts/sky-regular.woff2";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <header className="header-style">
-        <div>
-            <div className="row">
-            <a href="/">
-            <img src={logo} width="300px" className="header-logo"/>
-            </a>
-            <NavigationBar />
-            </div>
-        </div>
-    </header>
-    
-  )
-}
+    <div className="header-style">  
+    <Container fluid>  
+    <Row>  
+      <Col sm={12}><a href="/"><h1 className="gradient-text">GetYourWay</h1></a></Col>  
+    </Row>  
+  </Container>  
+    </div>  
 
-export default Header
+
+    // <header className="header-style"> 
+    //   <div className="row">
+    //     <a href="/">
+    //       <h1 className="gradient-text">GetYourWay</h1>
+    //     </a>
+    //   </div>
+    // </header>
+  );
+};
+
+export default Header;

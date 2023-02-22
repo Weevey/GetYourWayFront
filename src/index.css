@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "SkyMedium";
+  src: local("sky-medium.woff2"),
+   url("./Components/css/fonts/sky-medium.woff2") format("woff2");
+  
+  }
+
+@font-face {
+  font-family: "SkyRegular";
+  src: local("sky-regular.woff2"),
+    url("./Components/css/fonts/sky-regular.woff2") format("woff2");
+    
+  }

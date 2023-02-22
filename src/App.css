@@ -13,15 +13,15 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.App-body {
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  font-family: "SkyRegular";
 }
 
 .App-link {
@@ -43,8 +43,48 @@
 }
 
 .header-style {
-  background-color: azure;
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff9e00 0%,
+    #f00 25%,
+    #b5007d 50%,
+    #21429c 75%,
+    #0071ff 100%
+  );
+  border-image-slice: 1;
+  width: 100%;
+  font-family: "SkyMedium";
+  padding: 5px;
+  padding-left: 20px;
+  display: inline-block;
 }
+
+.gradient-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  color: #4a4a4a;
+  background-image: -webkit-linear-gradient(
+    left,
+    #ff9e00,
+    red 35%,
+    #b5007d 60%,
+    #21429c 85%,
+    #0071ff
+  );
+  background-size: 100%;
+}
+
+/* .logo {
+  /* font-family: Poiret One; */
+/* text-align: center;
+  font-size: 36px;
+  text-align: left;
+  margin: 1rem;
+  color: black;
+  font-family: "SkyMedium";
+} */
 
 .navigation-bar {
   text-align: right;
@@ -56,10 +96,12 @@
   width: 100%;
   padding: 12px 12px 12px 12px;
   background-color: #282c34;
+  flex-direction: column;
+  display: flex;
+  width: 250px;
 }
 
 .search-field {
-  width: 30%;
   margin-left: 20px;
   padding: 12px 20px;
   margin: 8px 0;
@@ -68,4 +110,21 @@
 
 .search-button {
   padding: 12px 20px;
+}
+
+.map-title {
+  background-color: #282c34;
+  color: white;
+  text-align: left;
+}
+
+.search-container {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
 }
