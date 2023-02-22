@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import data from "../data/airports.json";
 
-
-
-const FlightSearchForm = () => {
+const FlightSearchForm = ({ onArrivalChange, onDestinationChange }) => {
+  //addition JG
   const [departureValue, setdepartureValue] = useState("");
   const [destinationValue, setDestinationValue] = useState("");
   const [departureSuggestions, setdepartureSuggestions] = useState([]);
@@ -44,6 +43,7 @@ const FlightSearchForm = () => {
     const leafletexportlondeparture = parseFloat(departurelon);
 
     const departure = [leafletexportlatdeparture, leafletexportlondeparture];
+    onArrivalChange(departure); // added JG
     console.log(departure);
 
     setdepartureSuggestions([]);
@@ -54,8 +54,6 @@ const FlightSearchForm = () => {
     const destinationlat = airport.lat;
     const destinationlon = airport.lon;
 
-    
-
     const leafletexportdestinationlat = parseFloat(destinationlat);
     const leafletexportdestinationlon = parseFloat(destinationlon);
     const destination = [
@@ -63,8 +61,8 @@ const FlightSearchForm = () => {
       leafletexportdestinationlon,
     ];
 
+    onDestinationChange(destination); // added JG
     console.log(destination);
-    
 
     setDestinationSuggestions([]);
   };
@@ -142,7 +140,7 @@ const FlightSearchForm = () => {
   );
 };
 
-export const LeafletDepart = FlightSearchForm.departure;
+export const LeafletDepart = FlightSearchForm.departure; //doesnt work as oly readable by react
 export const LeafletDestination = FlightSearchForm.destination;
 
 export default FlightSearchForm;

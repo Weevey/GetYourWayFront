@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Weather from "./Weather";
 import MapTitle from "./MapTitle";
 import Map from "./Map";
@@ -7,6 +7,21 @@ import { Col, Row, Container } from "react-bootstrap";
 import FlightSearchForm from "./FlightSearch";
 
 const DashBoard = () => {
+  const [arrivalValue, setArrivalValue] = useState([55.4, 0.2]); // default
+  const [destinationValue, setDestinationValue] = useState([55.4, 0.2]); // default
+
+  const onArrivalChange = (value) => {
+    //oninput change function
+    console.log("On Input Change called");
+    setArrivalValue(value); // setinput value
+  };
+
+  const onDestinationChange = (value) => {
+    //oninput change function
+    console.log("On Input Change called");
+    setDestinationValue(value); // setinput value
+  };
+
   return (
     <div>
       <Row>
@@ -41,9 +56,15 @@ const DashBoard = () => {
           </Row>
         </Container>
         <Container fluid>
-          <Map />
+          <Map
+            arrivalValue={arrivalValue}
+            destinationValue={destinationValue}
+          />
           <br />
-          <FlightSearchForm />
+          <FlightSearchForm
+            onArrivalChange={onArrivalChange}
+            onDestinationChange={onDestinationChange} //passing down onchange
+          />
         </Container>
       </div>
       <Row>
