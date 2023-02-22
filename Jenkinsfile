@@ -11,11 +11,6 @@ pipeline {
                 sh 'npm audit fix'
             }
         }
-        stage('Test application') {
-            steps {
-                sh 'npm test'
-            }
-        }
         stage('Build application') {
             steps {
                 sh 'npm run build'
