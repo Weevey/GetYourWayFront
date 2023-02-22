@@ -9,7 +9,7 @@ const Header = () => {
     <div className="header-style">  
     <Container fluid>  
     <Row>  
-      <Col sm={12}><a href="/"><h1 className="gradient-text">GetYourWay</h1></a></Col>  
+      <Col sm={12}><a href="/"><h1 className="gradient-text">GetYourWayBaby</h1></a></Col>  
     </Row>  
   </Container>  
     </div>  
