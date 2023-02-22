@@ -46,7 +46,12 @@ const DashBoard = () => {
 
         <Container fluid>
           <Row>
-            <Col md={12}>{/* <Weather /> */}</Col>
+
+
+            <Col md={12}>
+            <FlightSearchForm />
+            </Col>
+
           </Row>
         </Container>
 
@@ -56,12 +61,17 @@ const DashBoard = () => {
           </Row>
         </Container>
         <Container fluid>
+
           <Map departValue={departValue} destinationValue={destinationValue} />
           <br />
           <FlightSearchForm
             onDepartChange={onDepartChange}
             onDestinationChange={onDestinationChange} //passing down onchange
           />
+
+         
+          
+
         </Container>
       </div>
       <Row>
