@@ -35,8 +35,11 @@ const Login = () => {
   } else {
     return (
       <div className="login">
+        <h1 className="welcome">Welcome...</h1>
+        <br></br>
+        <br></br>
         <input
-          placeholder="Enter your username"
+          placeholder="Please enter your username"
           className="login-input"
           name="username"
           label="Username"
@@ -45,7 +48,7 @@ const Login = () => {
         <br />
         <br />
         <input
-          placeholder="Enter your password"
+          placeholder="Please enter your password"
           className="login-input"
           type="password"
           name="password"
