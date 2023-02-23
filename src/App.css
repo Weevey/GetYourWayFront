@@ -211,3 +211,6 @@ a {
     transform: translateX(0);
   }
 }
+.weatherIcon {
+  height: 30px;
+}
