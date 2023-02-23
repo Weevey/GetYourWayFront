@@ -5,6 +5,7 @@ import Map from "./Map";
 import SearchBar from "./searchBar";
 import { Col, Row, Container } from "react-bootstrap";
 import FlightSearchForm from "./FlightSearch";
+import ThreeBoxes from "./movieLocation";
 
 const DashBoard = () => {
   const [departValue, setDepartValue] = useState([55.4, 0.2]); // default
@@ -52,6 +53,7 @@ const DashBoard = () => {
       <Row>
         <br />
       </Row>
+      <ThreeBoxes />
     </div>
   );
 };
