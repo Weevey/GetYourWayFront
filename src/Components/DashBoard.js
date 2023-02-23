@@ -7,8 +7,8 @@ import { Col, Row, Container } from "react-bootstrap";
 import FlightSearchForm from "./FlightSearch";
 
 const DashBoard = () => {
-  const [departValue, setDepartValue] = useState([55.4, 0.2]); // default
-  const [destinationValue, setDestinationValue] = useState([55.4, 0.2]); // default
+  const [departValue, setDepartValue] = useState([51.470020, -0.454295]); // default
+  const [destinationValue, setDestinationValue] = useState([51.470020, -0.454295]); // default
 
   const onDepartChange = (value) => {
     //oninput change function
