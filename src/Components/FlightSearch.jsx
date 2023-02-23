@@ -235,7 +235,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 </Row>
 </Form>
 
-<p>{flightError}</p>
+<p className="gradient-text">{flightError}</p>
 
 
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
