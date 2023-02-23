@@ -35,6 +35,15 @@ const Login = () => {
   } else {
     return (
       <div className="login">
+        <div className="cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face left"></div>
+          <div class="face right"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+
         <h1 className="welcome">Welcome...</h1>
         <br></br>
         <br></br>
