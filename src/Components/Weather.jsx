@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { SERVER_URL } from "./constants";
-import sunny from './Images/sunny.png';
-import cloudy from './Images/cloudy.png';
-import mist from './Images/mist.png';
-import rain from './Images/rain.png';
-import thunder from './Images/thunder.png';
-import { Col, Card, Row } from 'react-bootstrap';
-import snow from './Images/snow.png';
+import sunny from "./Images/sunny.png";
+import cloudy from "./Images/cloudy.png";
+import mist from "./Images/mist.png";
+import rain from "./Images/rain.png";
+import thunder from "./Images/thunder.png";
+import { Col, Card, Row } from "react-bootstrap";
+import snow from "./Images/snow.png";
 
-
-function Weather({ searchTerm, flightDuration, flightPrice}) {
+function Weather({ searchTerm, flightDuration, flightPrice }) {
   const [searchResults, setSearchResults] = useState("");
   const [temperature, setTemperature] = useState(0);
   const [clouds, setClouds] = useState("");
@@ -31,12 +30,11 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
         console.error("Error fetching search results:", error);
       });
   };
-  
+
   useEffect(() => {
     console.log("Search results updated:", searchResults);
   }, [searchResults]);
-  
-  
+
   useEffect(() => {
     if (searchTerm) {
       handleSearch();
@@ -44,73 +42,65 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
   }, [searchTerm]);
 
   const weatherInfo = {
-    "object": {
-    "Clouds": cloudy,
-    "Clear": sunny,
-    "Mist": mist,
-    "Rain": rain,
-    "Thunderstorm": thunder,
-    "snow": snow
-    }
-  }
+    object: {
+      Clouds: cloudy,
+      Clear: sunny,
+      Mist: mist,
+      Rain: rain,
+      Thunderstorm: thunder,
+      snow: snow,
+    },
+  };
 
   return (
-  //   <Container className="SearchResultBox">
-  //     <row className="SearchResultBox">
-  //     <Col xs={12} md={4}> <p>Flight Duration: {flightDuration}</p> </Col>
-  //     <Col xs={12} md={4}> <p>Flight Price: ${flightPrice}</p></Col>
-  //     <Col xs={12} md={4}> <img src={weatherInfo.object[clouds]} className="weatherIcon"/>
-  //       <p>
-  //           {temperature}&#xb0;C
-  //       </p></Col>
-  // </row>
-  //   </Container>
-  <Row className="SearchResultBox">
-  <Col xs={12} md={4}>
+    //   <Container className="SearchResultBox">
+    //     <row className="SearchResultBox">
+    //     <Col xs={12} md={4}> <p>Flight Duration: {flightDuration}</p> </Col>
+    //     <Col xs={12} md={4}> <p>Flight Price: ${flightPrice}</p></Col>
+    //     <Col xs={12} md={4}> <img src={weatherInfo.object[clouds]} className="weatherIcon"/>
+    //       <p>
+    //           {temperature}&#xb0;C
+    //       </p></Col>
+    // </row>
+    //   </Container>
+    <Row className="SearchResultBox">
+      <Col xs={12} md={4}>
         <Card>
-        <div className="text-center">
-          
-          </div>
+          <div className="text-center"></div>
           <Card.Body>
-          <Card.Title><h4>Flight Time</h4></Card.Title>
-            <Card.Text className="text-center">
-            {flightDuration}
-            </Card.Text>
+            <Card.Title>
+              <h4>Flight Time</h4>
+            </Card.Title>
+            <Card.Text className="text-center">{flightDuration}</Card.Text>
           </Card.Body>
         </Card>
       </Col>
       <Col xs={12} md={4}>
         <Card>
-        <div className="text-center">
-          
-          </div>
+          <div className="text-center"></div>
           <Card.Body>
-         <Card.Title><h4>Cheapest Price</h4></Card.Title>
-            <Card.Text className="text-center">
-            £{flightPrice}
-            </Card.Text>
+            <Card.Title>
+              <h4>Cheapest Price</h4>
+            </Card.Title>
+            <Card.Text className="text-center">£{flightPrice}</Card.Text>
           </Card.Body>
         </Card>
       </Col>
       <Col xs={12} md={4}>
         <Card>
-        <div className="text-center">
-          
-          </div>
+          <div className="text-center"></div>
           <Card.Body>
-          <Card.Title><h4>Weather</h4></Card.Title>
+            <Card.Title>
+              <h4>Weather</h4>
+            </Card.Title>
+            <Card.Text className="text-center">{temperature}&#xb0;C</Card.Text>
             <Card.Text className="text-center">
-            {temperature}&#xb0;C 
-            </Card.Text>
-            <Card.Text className="text-center">
-            <img src={weatherInfo.object[clouds]} className="weatherIcon"/>
+              <img src={weatherInfo.object[clouds]} className="weatherIcon" />
             </Card.Text>
           </Card.Body>
         </Card>
       </Col>
-
-      </Row>
-      
+    </Row>
   );
 }
 
