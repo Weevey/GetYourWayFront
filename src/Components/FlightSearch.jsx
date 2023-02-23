@@ -4,7 +4,7 @@ import Weather from "./Weather";
 import axios from "axios";
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
-  // Search term is updated in handleDestinationSuggestionClick to be the airport.city 
+  // Search term is updated in handleDestinationSuggestionClick to be the airport.city
   const [searchTerm, setSearchTerm] = useState("");
   // end section.
   const [departureValue, setdepartureValue] = useState("");
@@ -21,6 +21,9 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const [flightDepartureCode, setFlightDepartureCode] = useState("");
   const [flightDestinationCode, setFlightDestinationCode] = useState("");
   // end section.
+
+// state for flight data loading message
+  const [isLoading, setIsLoading] = useState();
 
   const handledepartureChange = (event) => {
     const value = event.target.value;
@@ -77,7 +80,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
     onDestinationChange(destination); // added JG
     console.log(destination);
-    // searchTerm is passed into Weather.jsx underneath form button click. 
+    // searchTerm is passed into Weather.jsx underneath form button click.
     setSearchTerm(airport.city);
 
     setDestinationSuggestions([]);
@@ -94,6 +97,8 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   };
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
+    // The setIsLoading is set to true and displays message
+    setIsLoading(true);
     const token = sessionStorage.getItem("jwt");
     const url = "http://18.132.251.114:9090/flight";
 
@@ -112,22 +117,22 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
         console.log(response.data);
         console.log(response.data.price);
         console.log(response.data.duration);
-        
+
         setFlightPrice(response.data.price);
         setFlightDuration(response.data.duration);
-        
+         // The setIsLoading is set to false and hides the message
+        setIsLoading(false);
+
         console.log(payload);
-      // Console log an error if the response is empty. 
-      if ( response.data.length == 0 ) {
-        console.log("No Flights Available.")
-    }
+        // Console log an error if the response is empty.
+        if (response.data.length == 0) {
+          console.log("No Flights Available.");
+        }
       })
-      
+
       .catch((error) => {
-     
         console.log(error);
       });
-     
   };
   // The return element consists of a user form which updates the relevant states as users interact with it.
   // The submit button beings the API call for flight data.
@@ -193,8 +198,18 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       <br />
       <button onClick={handleSearch}>Search</button>
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
-      {flightDuration && <Weather searchTerm={searchTerm} flightDuration={flightDuration} flightPrice={flightPrice}/>}
-      
+      {isLoading ? (
+        <p>Loading flight data...</p>
+      ) : (
+        flightDuration && (
+          <Weather
+            searchTerm={searchTerm}
+            flightDuration={flightDuration}
+            flightPrice={flightPrice}
+          />
+        )
+      )}
+      {/* {flightDuration && <Weather searchTerm={searchTerm} flightDuration={flightDuration} flightPrice={flightPrice}/>} */}
     </div>
   );
 };
