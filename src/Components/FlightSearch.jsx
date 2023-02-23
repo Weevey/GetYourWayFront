@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import data from "../data/airports.json";
 import Weather from "./Weather";
 import axios from "axios";
-import loadingcircle from "../Components/Images/loadingcircle.svg"
+import loadingcircle from "../Components/Images/loadingcircle.svg";
+import { Row, Col, Form, Button } from "react-bootstrap";
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // Search term is updated in handleDestinationSuggestionClick to be the airport.city
@@ -149,9 +150,11 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // The submit button beings the API call for flight data.
   return (
     <div>
-      <label htmlFor="departure-input">Departure:</label>
-      <input
-        id="departure-input"
+       <Form>
+  <Row className="justify-content-center">
+    <Form.Group as={Col} sm={3} controlId="departure-input">
+      <Form.Label>Departure:</Form.Label>
+      <Form.Control
         type="text"
         value={departureValue}
         onChange={handledepartureChange}
@@ -168,10 +171,10 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
           ))}
         </ul>
       )}
-
-      <label htmlFor="destination-input">Destination:</label>
-      <input
-        id="destination-input"
+    </Form.Group>
+    <Form.Group as={Col} sm={3} controlId="destination-input">
+      <Form.Label>Destination:</Form.Label>
+      <Form.Control
         type="text"
         value={destinationValue}
         onChange={handleDestinationChange}
@@ -188,27 +191,41 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
           ))}
         </ul>
       )}
+    </Form.Group>
 
-      <label htmlFor="date-input">Date:</label>
-      <input
-        id="date-input"
+    <Form.Group as={Col} sm={3} controlId="date-input">
+      <Form.Label>Date:</Form.Label>
+      <Form.Control
         type="date"
         value={flightDate}
         onChange={handleDateChange}
       />
+    </Form.Group>
 
-      <label htmlFor="passengers-input">Passengers:</label>
-      <input
-        id="passengers-input"
+    <Form.Group as={Col} sm={3} controlId="passengers-input">
+      <Form.Label>Passengers:</Form.Label>
+      <Form.Control
         type="number"
         min="1"
         max="10"
         value={flightAdultCount}
         onChange={handlePassengersChange}
       />
-      <br />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={handleClear}>Clear</button>
+    </Form.Group>
+    </Row>
+    <Row>
+  <Col sm={1} className="d-flex my-2">
+    <Button className="mx-2" onClick={handleSearch}>
+      Search
+    </Button>
+  </Col>
+  <Col sm={1} className="d-flex my-2">
+    <Button className="mx-2" onClick={handleClear}>
+      Clear
+    </Button>
+  </Col>
+</Row>
+</Form>
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
       <br />
       <br />

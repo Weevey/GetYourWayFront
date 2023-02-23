@@ -30,12 +30,12 @@ const DashBoard = () => {
       <div className="App-body">
         <Container fluid>
           <Row>
-            <Col md={12}>
+            
             <FlightSearchForm
             onDepartChange={onDepartChange}
             onDestinationChange={onDestinationChange} //passing down onchange
           />
-            </Col>
+            
           </Row>
         </Container>
 
