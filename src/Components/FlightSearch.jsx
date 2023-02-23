@@ -12,6 +12,9 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const [departureSuggestions, setdepartureSuggestions] = useState([]);
   const [destinationSuggestions, setDestinationSuggestions] = useState([]);
 
+  const [flightPrice, setFlightPrice] = useState("");
+  const [flightDuration, setFlightDuration] = useState("");
+
   // States from user interactions and called into the axon request.
   const [flightDate, setFlightDate] = useState("");
   const [flightAdultCount, setFlightAdultCount] = useState("");
@@ -107,6 +110,12 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       .post(url, payload, { headers: { Authorization: token } })
       .then((response) => {
         console.log(response.data);
+        console.log(response.data.price);
+        console.log(response.data.duration);
+        
+        setFlightPrice(response.data.price);
+        setFlightDuration(response.data.duration);
+        
         console.log(payload);
       // Console log an error if the response is empty. 
       if ( response.data.length == 0 ) {
@@ -184,7 +193,8 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       <br />
       <button onClick={handleSearch}>Search</button>
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
-      {searchTerm && <Weather searchTerm={searchTerm} />}
+      {flightDuration && <Weather searchTerm={searchTerm} flightDuration={flightDuration} flightPrice={flightPrice}/>}
+      
     </div>
   );
 };

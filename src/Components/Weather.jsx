@@ -3,7 +3,7 @@ import axios from "axios";
 import { SERVER_URL } from "./constants";
 
 
-function Weather({ searchTerm }) {
+function Weather({ searchTerm, flightDuration, flightPrice}) {
   const [searchResults, setSearchResults] = useState("");
   const token = sessionStorage.getItem("jwt");
 
@@ -33,9 +33,10 @@ function Weather({ searchTerm }) {
 
   return (
     <div>
-      <h2>
-        The current temperature in {searchTerm} is: {searchResults}&#xb0;C
-      </h2>
+      <p>
+        The current at your destination is {searchResults}&#xb0;C
+      </p>
+      <p>Flight Duration: {flightDuration} Flight Price: ${flightPrice}</p>
     </div>
   );
 }
