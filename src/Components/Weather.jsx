@@ -6,6 +6,7 @@ import cloudy from './Images/cloudy.png';
 import mist from './Images/mist.png';
 import rain from './Images/rain.png';
 import thunder from './Images/thunder.png';
+import snow from './Images/snow.png';
 
 
 function Weather({ searchTerm, flightDuration, flightPrice}) {
@@ -46,18 +47,17 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
     "Clear": sunny,
     "Mist": mist,
     "Rain": rain,
-    "Thunderstorm": thunder
+    "Thunderstorm": thunder,
+    "snow": snow
     }
   }
 
   return (
-    <div >
-        <p>Flight Duration: {flightDuration}</p> 
-        <p>Flight Price: ${flightPrice}</p>
+    <div>
+        <p>Flight Duration:         {flightDuration}</p>
+        <p>{temperature}&#xb0;C</p>
+        <p>Flight Price:     £{flightPrice}</p>
         <img src={weatherInfo.object[clouds]} className="weatherIcon"/>
-        <p>
-            {temperature}&#xb0;C
-        </p>
     </div>
   );
 }

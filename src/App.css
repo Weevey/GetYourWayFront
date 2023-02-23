@@ -280,12 +280,13 @@ a {
 }
 .weatherIcon {
   height: 30px;
+  
 }
 
 .polyline {
   stroke: #b5007d;
   animation-name: poly-animation;
-  stroke-dasharray: 10;
+  /* stroke-dasharray: 10; */
   animation-duration: 30s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -313,4 +314,14 @@ a {
     stroke: #b5007d;
     stroke-dashoffset: 0;
   }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.grid-item {
+  padding: 15px;
+  text-align: center;
 }
