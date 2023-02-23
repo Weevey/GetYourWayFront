@@ -1,27 +1,25 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 @font-face {
   font-family: "SkyMedium";
   src: local("sky-medium.woff2"),
-   url("./Components/css/fonts/sky-medium.woff2") format("woff2");
-  
-  }
+    url("./Components/css/fonts/sky-medium.woff2") format("woff2");
+}
 
 @font-face {
   font-family: "SkyRegular";
   src: local("sky-regular.woff2"),
     url("./Components/css/fonts/sky-regular.woff2") format("woff2");
-    
-  }
+}

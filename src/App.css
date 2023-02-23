@@ -63,7 +63,7 @@
 .gradient-text {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
+  /* display: inline-block; */
   color: #4a4a4a;
   background-image: -webkit-linear-gradient(
     left,
@@ -129,6 +129,155 @@ a {
   text-decoration: none;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the height to the full viewport height */
+  background-image: url("../src/Components/Images/loginBG.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* animation: fade ease-in 1s; */
+}
+
+/* @keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateX(0);
+  } */
+
+.login-input {
+  justify-content: center;
+  margin: 1px;
+  padding: 20px;
+  width: 400px;
+  border-radius: 30px;
+  border: 1px solid gray;
+  font-size: 20px;
+  font-family: "SkyMedium";
+  text-align: center;
+}
+
+.login-button {
+  margin: 5px;
+  height: 60px;
+  width: 300px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  animation: shimmer 4s infinite;
+  font-size: 20px;
+  font-family: "SkyMedium";
+}
+
+@keyframes shimmer {
+  0% {
+    box-shadow: 0 0 0 0 rgba(51, 49, 49, 0.772);
+    opacity: 100;
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.614);
+    opacity: 100;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.965);
+    opacity: 100;
+  }
+}
+
+.welcome {
+  font-family: "SkyMedium";
+  color: rgb(128, 128, 128);
+  font-size: 70px;
+  opacity: 1;
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateX(0);
+  }
+}
+
+/* CUBE EXPERIMENTAL */
+
+.cube {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 10s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+.front {
+  transform: rotateY(0deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f4043b6;
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
 .weatherIcon {
   height: 30px;
 }

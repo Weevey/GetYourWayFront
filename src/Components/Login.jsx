@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { SERVER_URL } from "./constants.js";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
-import { ToastContainer, toast } from "react-toastify";
+
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DashBoard from "./DashBoard.js";
 
@@ -38,10 +37,31 @@ const Login = () => {
     return <DashBoard />;
   } else {
     return (
-      <div>
-        <TextField name="username" label="Username" onChange={handleChange} />
+      <div className="login">
+        <div className="cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face left"></div>
+          <div class="face right"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+
+        <h1 className="welcome">Welcome...</h1>
+        <br></br>
+        <br></br>
+        <input
+          placeholder="Please enter your username"
+          className="login-input"
+          name="username"
+          label="Username"
+          onChange={handleChange}
+        />
         <br />
-        <TextField
+        <br />
+        <input
+          placeholder="Please enter your password"
+          className="login-input"
           type="password"
           name="password"
           label="Password"
@@ -49,10 +69,15 @@ const Login = () => {
         />
         <br />
         <br />
-        <Button variant="outlined" color="primary" onClick={login}>
-          Login
-        </Button>
-        <ToastContainer autoClose={1500} />
+
+        <button
+          className="login-button"
+          variant="outlined"
+          color="primary"
+          onClick={login}
+        >
+          LOG IN
+        </button>
       </div>
     );
   }

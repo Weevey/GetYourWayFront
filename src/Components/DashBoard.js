@@ -5,6 +5,7 @@ import Map from "./Map";
 
 import { Col, Row, Container } from "react-bootstrap";
 import FlightSearchForm from "./FlightSearch";
+import MovieCards from "./movieLocation";
 
 const DashBoard = () => {
   const [departValue, setDepartValue] = useState([55.4, 0.2]); // default
@@ -30,12 +31,10 @@ const DashBoard = () => {
       <div className="App-body">
         <Container fluid>
           <Row>
-            
             <FlightSearchForm
-            onDepartChange={onDepartChange}
-            onDestinationChange={onDestinationChange} //passing down onchange
-          />
-            
+              onDepartChange={onDepartChange}
+              onDestinationChange={onDestinationChange} //passing down onchange
+            />
           </Row>
         </Container>
 
@@ -46,12 +45,12 @@ const DashBoard = () => {
         </Container>
         <Container fluid>
           <Map departValue={departValue} destinationValue={destinationValue} />
-          
         </Container>
       </div>
-      <Row>
-        <br />
-      </Row>
+      <Row></Row>
+      <Container fluid>
+        <MovieCards />
+      </Container>
     </div>
   );
 };
