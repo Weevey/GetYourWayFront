@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import data from "../data/airports.json";
 import Weather from "./Weather";
 import axios from "axios";
+import loadingcircle from "../Components/Images/loadingcircle.svg"
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // Search term is updated in handleDestinationSuggestionClick to be the airport.city
@@ -95,6 +96,16 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     //  This updates the values of the states at the top of the page, using 'OnChange' in the form element.
     setFlightAdultCount(event.target.value);
   };
+  const handleClear = () => { 
+    setFlightDate("");
+    setdepartureValue("");
+    setDestinationValue("");
+    setFlightAdultCount("");
+    setSearchTerm("");
+    setFlightDuration("");
+    setFlightPrice("");
+    
+  }
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
     // The setIsLoading is set to true and displays message
@@ -197,9 +208,16 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       />
       <br />
       <button onClick={handleSearch}>Search</button>
+      <button onClick={handleClear}>Clear</button>
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
+      <br />
+      <br />
       {isLoading ? (
-        <p>Loading flight data...</p>
+        <container>
+        <img src={loadingcircle} alt="Loading..." />
+        </container>
+
+        
       ) : (
         flightDuration && (
           <Weather
