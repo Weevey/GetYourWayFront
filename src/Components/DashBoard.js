@@ -31,12 +31,10 @@ const DashBoard = () => {
       <div className="App-body">
         <Container fluid>
           <Row>
-            
             <FlightSearchForm
-            onDepartChange={onDepartChange}
-            onDestinationChange={onDestinationChange} //passing down onchange
-          />
-            
+              onDepartChange={onDepartChange}
+              onDestinationChange={onDestinationChange} //passing down onchange
+            />
           </Row>
         </Container>
 
@@ -47,16 +45,12 @@ const DashBoard = () => {
         </Container>
         <Container fluid>
           <Map departValue={departValue} destinationValue={destinationValue} />
-          
         </Container>
       </div>
-      <Row>
-        <br /> <br />
-      </Row>
+      <Row></Row>
       <Container fluid>
-      <MovieCards />
+        <MovieCards />
       </Container>
-     
     </div>
   );
 };

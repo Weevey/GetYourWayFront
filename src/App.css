@@ -211,3 +211,70 @@ a {
     transform: translateX(0);
   }
 }
+
+/* CUBE EXPERIMENTAL */
+
+.cube {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 10s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+.front {
+  transform: rotateY(0deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f4043b6;
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(40px);
+  background-color: none;
+  border: solid;
+  border-color: #3f404335;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
