@@ -235,10 +235,11 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
       <br />
       <br />
+     
       {isLoading ? (
-        <container>
-        <img src={loadingcircle} alt="Loading..." />
-        </container>
+      
+        <img src={loadingcircle} alt="Loading..." style={{ display: 'block', margin: 'auto', height: '50px', width: '50px'}}/>
+     
 
         
       ) : (
@@ -250,6 +251,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
           />
         )
       )}
+     
       {/* {flightDuration && <Weather searchTerm={searchTerm} flightDuration={flightDuration} flightPrice={flightPrice}/>} */}
     </div>
   );
