@@ -106,10 +106,17 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       .then((response) => {
         console.log(response.data);
         console.log(payload);
+      // Console log an error if the response is empty. 
+      if ( response.data.length == 0 ) {
+        console.log("No Flights Available.")
+    }
       })
+      
       .catch((error) => {
+     
         console.log(error);
       });
+     
   };
   // The return element consists of a user form which updates the relevant states as users interact with it.
   // The submit button beings the API call for flight data.
