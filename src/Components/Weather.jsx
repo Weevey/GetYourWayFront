@@ -34,7 +34,7 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
   return (
     <div>
       <p>
-        The current at your destination is {searchResults}&#xb0;C
+        The temprature at your destination is {searchResults}&#xb0;C
       </p>
       <p>Flight Duration: {flightDuration} Flight Price: ${flightPrice}</p>
     </div>
