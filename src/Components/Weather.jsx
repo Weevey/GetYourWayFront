@@ -35,6 +35,7 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
     console.log("Search results updated:", searchResults);
   }, [searchResults]);
   
+  
   useEffect(() => {
     if (searchTerm) {
       handleSearch();

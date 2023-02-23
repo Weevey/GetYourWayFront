@@ -47,6 +47,7 @@ const DashBoard = () => {
           <Map departValue={departValue} destinationValue={destinationValue} />
         </Container>
       </div>
+      <br></br>
       <Row></Row>
       <Container fluid>
         <MovieCards />
