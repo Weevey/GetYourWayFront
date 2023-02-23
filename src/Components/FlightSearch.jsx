@@ -214,18 +214,24 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     </Form.Group>
     </Row>
     <Row>
-  <Col sm={1} className="d-flex my-2">
+    <Col sm={4} className="d-flex my-2">
+      </Col>
+  <Col sm={2} className="d-flex mx-2">
     <Button className="mx-2" onClick={handleSearch}>
       Search
     </Button>
   </Col>
-  <Col sm={1} className="d-flex my-2">
+  <Col sm={2} className="d-flex mx-2">
     <Button className="mx-2" onClick={handleClear}>
       Clear
     </Button>
   </Col>
+  <Col sm={4} className="d-flex my-2">
+      </Col>
 </Row>
 </Form>
+
+
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
       <br />
       <br />
