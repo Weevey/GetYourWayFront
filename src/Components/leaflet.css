@@ -24,38 +24,7 @@
   border-image-slice: 1;
 }
 
-.polyline {
-  stroke: #b5007d;
-  animation-name: poly-animation;
-  stroke-dasharray: 10;
-  animation-duration: 30s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
 
-@keyframes poly-animation {
-  0% {
-    stroke: #b5007d;
-    stroke-dashoffset: 1000;
-  }
-
-  25% {
-    stroke: #0071ff;
-  }
-
-  50% {
-    stroke: #ff9e00;
-  }
-
-  75% {
-    stroke: #f00;
-  }
-
-  100% {
-    stroke: #b5007d;
-    stroke-dashoffset: 0;
-  }
-}
 
 .popup .leaflet-popup-content-wrapper {
   background: #2c3e50;
