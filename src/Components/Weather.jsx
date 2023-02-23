@@ -72,7 +72,7 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
           
           </div>
           <Card.Body>
-          <Card.Title><h4>Destination</h4></Card.Title>
+          <Card.Title><h4>Flight Time</h4></Card.Title>
             <Card.Text className="text-center">
             {flightDuration}
             </Card.Text>

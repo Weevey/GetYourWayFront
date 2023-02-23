@@ -234,7 +234,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       </Col>
 </Row>
 </Form>
-
+<br></br>
 <p className="gradient-text">{flightError}</p>
 
 
