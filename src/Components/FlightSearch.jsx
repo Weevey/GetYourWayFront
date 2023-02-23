@@ -4,7 +4,9 @@ import Weather from "./Weather";
 import axios from "axios";
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
+  // Search term is updated in handleDestinationSuggestionClick to be the airport.city 
   const [searchTerm, setSearchTerm] = useState("");
+  // end section.
   const [departureValue, setdepartureValue] = useState("");
   const [destinationValue, setDestinationValue] = useState("");
   const [departureSuggestions, setdepartureSuggestions] = useState([]);
@@ -72,7 +74,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
     onDestinationChange(destination); // added JG
     console.log(destination);
-
+    // searchTerm is passed into Weather.jsx underneath form button click. 
     setSearchTerm(airport.city);
 
     setDestinationSuggestions([]);
@@ -181,6 +183,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       />
       <br />
       <button onClick={handleSearch}>Search</button>
+      {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
       {searchTerm && <Weather searchTerm={searchTerm} />}
     </div>
   );
