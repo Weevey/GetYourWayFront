@@ -60,7 +60,6 @@
   display: inline-block;
 }
 
-
 .gradient-text {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -281,7 +280,6 @@ a {
 }
 .weatherIcon {
   height: 30px;
-  
 }
 
 .polyline {
@@ -322,7 +320,7 @@ a {
   grid-template-columns: auto auto;
 }
 
-.SearchResultBox{
+.SearchResultBox {
   box-shadow: rgb(0 0 0 / 20%) 0 4px 2px -2px;
   border-bottom: 3px solid transparent;
   border-top: 3px solid transparent;
@@ -337,10 +335,9 @@ a {
   );
   border-image-slice: 1;
   width: 100%;
-  
+
   padding: 5px;
   padding-left: 20px;
-
 }
 
 .SearchResultBox .card-title {
@@ -371,7 +368,6 @@ a {
   text-align: center;
   padding-top: 2%;
 }
-
 
 .card-text {
   text-align: left;
