@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { SERVER_URL } from "./constants";
+import sunny from './Images/sunny.png';
+import cloudy from './Images/cloudy.png';
+import mist from './Images/mist.png';
+import rain from './Images/rain.png';
+import thunder from './Images/thunder.png';
 
 
-function Weather({ searchTerm }) {
+function Weather({ searchTerm, flightDuration, flightPrice}) {
   const [searchResults, setSearchResults] = useState("");
+  const [temperature, setTemperature] = useState(0);
+  const [clouds, setClouds] = useState("");
+
   const token = sessionStorage.getItem("jwt");
 
   const handleSearch = () => {
@@ -14,7 +22,8 @@ function Weather({ searchTerm }) {
       })
       .then((response) => {
         setSearchResults(response.data.weather);
-        console.log(response.data.weather);
+        setTemperature(response.data.Temperature);
+        setClouds(response.data.Weather.main);
       })
       .catch((error) => {
         console.error("Error fetching search results:", error);
@@ -31,11 +40,24 @@ function Weather({ searchTerm }) {
     }
   }, [searchTerm]);
 
+  const weatherInfo = {
+    "object": {
+    "Clouds": cloudy,
+    "Clear": sunny,
+    "Mist": mist,
+    "Rain": rain,
+    "Thunderstorm": thunder
+    }
+  }
+
   return (
-    <div>
-      <h2>
-        The current temperature in {searchTerm} is: {searchResults}&#xb0;C
-      </h2>
+    <div >
+        <p>Flight Duration: {flightDuration}</p> 
+        <p>Flight Price: ${flightPrice}</p>
+        <img src={weatherInfo.object[clouds]} className="weatherIcon"/>
+        <p>
+            {temperature}&#xb0;C
+        </p>
     </div>
   );
 }
