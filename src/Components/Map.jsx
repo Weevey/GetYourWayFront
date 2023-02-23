@@ -22,13 +22,10 @@ let DefaultIcon = Leaflet.icon({
 Leaflet.Marker.prototype.options.icon = DefaultIcon;
 
 const Map = ({ departValue, destinationValue }) => {
-  //JOURNEY START AND JOURNEY END
-  console.log(departValue);
-  let journeyStart = departValue;
-  let journeyEnd = destinationValue;
+
 
   // POLYLINE BETWEEN END AND START
-  const positions = [journeyStart, journeyEnd];
+  const positions = [departValue, destinationValue];
 
   const pathOptions = {
     color: "blue",
@@ -41,7 +38,7 @@ const Map = ({ departValue, destinationValue }) => {
 
   return (
     <MapContainer
-      center={journeyStart}
+      center={departValue}
       zoom={2}
       scrollWheelZoom={false}
       className="map-container"
@@ -59,13 +56,13 @@ const Map = ({ departValue, destinationValue }) => {
         maxZoom={20}
       /> */}
 
-      <Marker position={journeyStart}>
+      <Marker position={departValue}>
         <Popup>
           Journey start <br />
         </Popup>
       </Marker>
 
-      <Marker position={journeyEnd}>
+      <Marker position={destinationValue}>
         <Popup>
           Journey end <br />
         </Popup>
