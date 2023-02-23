@@ -3,7 +3,7 @@ import data from "../data/airports.json";
 import Weather from "./Weather";
 import axios from "axios";
 
-const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
+const FlightSearchForm = () => {
   // Search term is updated in handleDestinationSuggestionClick to be the airport.city 
   const [searchTerm, setSearchTerm] = useState("");
   // end section.
@@ -18,6 +18,20 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const [flightDepartureCode, setFlightDepartureCode] = useState("");
   const [flightDestinationCode, setFlightDestinationCode] = useState("");
   // end section.
+    const [departValue, setDepartValue] = useState([51.470020, -0.454295]); // default
+  const [destinValue, setDestinValue] = useState([51.470020, -0.454295]); // default
+
+  const onDepartChange = (value) => {
+    //oninput change function
+    console.log("On Input Change called");
+    setDepartValue(value); // setinput value
+  };
+
+  const onDestinationChange = (value) => {
+    //oninput change function
+    console.log("On Input Change called");
+    setDestinValue(value); // setinput value
+  };
 
   const handledepartureChange = (event) => {
     const value = event.target.value;
@@ -184,7 +198,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       <br />
       <button onClick={handleSearch}>Search</button>
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
-      {searchTerm && <Weather searchTerm={searchTerm} />}
+      {searchTerm && <Weather searchTerm={searchTerm} destinationExport={destinValue} departureExport={departValue}/>}
     </div>
   );
 };

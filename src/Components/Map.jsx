@@ -21,11 +21,11 @@ let DefaultIcon = Leaflet.icon({
 // created an on change, passed to flight search and then passed to map
 Leaflet.Marker.prototype.options.icon = DefaultIcon;
 
-const Map = ({ departValue, destinationValue }) => {
+const Map = ({ variableDeparture, variableDestination }) => {
 
 
   // POLYLINE BETWEEN END AND START
-  const positions = [departValue, destinationValue];
+  const positions = [variableDeparture, variableDestination];
 
   const pathOptions = {
     color: "blue",
@@ -38,7 +38,7 @@ const Map = ({ departValue, destinationValue }) => {
 
   return (
     <MapContainer
-      center={departValue}
+      center={variableDeparture}
       zoom={2}
       scrollWheelZoom={false}
       className="map-container"
@@ -56,13 +56,13 @@ const Map = ({ departValue, destinationValue }) => {
         maxZoom={20}
       /> */}
 
-      <Marker position={departValue}>
+      <Marker position={variableDeparture}>
         <Popup>
           Journey start <br />
         </Popup>
       </Marker>
 
-      <Marker position={destinationValue}>
+      <Marker position={variableDestination}>
         <Popup>
           Journey end <br />
         </Popup>
