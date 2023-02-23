@@ -218,6 +218,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     </Form.Group>
     </Row>
     <Row>
+      <br></br>
     <Col sm={4} className="d-flex my-2">
       </Col>
   <Col sm={2} className="d-flex mx-2">
@@ -234,12 +235,10 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       </Col>
 </Row>
 </Form>
-<br></br>
-<p className="gradient-text">{flightError}</p>
+<h2 className="gradient-text"><strong>{flightError}</strong></h2>
 
 
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
-      <br />
       <br />
      
       {isLoading ? (
