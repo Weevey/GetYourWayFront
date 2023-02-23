@@ -281,3 +281,22 @@ a {
 .weatherIcon {
   height: 30px;
 }
+
+.SearchResultBox{
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff9e00 0%,
+    #f00 25%,
+    #b5007d 50%,
+    #21429c 75%,
+    #0071ff 100%
+  );
+  border-image-slice: 1;
+  width: 100%;
+  
+  padding: 5px;
+  padding-left: 20px;
+
+}
