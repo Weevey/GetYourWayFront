@@ -128,3 +128,56 @@
 a {
   text-decoration: none;
 }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the height to the full viewport height */
+  background-image: url("../src/Components/Images/loginBG.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-input {
+  justify-content: center;
+  margin: 1px;
+  padding: 20px;
+  width: 400px;
+  border-radius: 30px;
+  border: 1px solid gray;
+  font-size: 20px;
+  font-family: "SkyMedium";
+  text-align: center;
+}
+
+.login-button {
+  margin: 5px;
+  height: 60px;
+  width: 300px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  animation: shimmer 4s infinite;
+  font-size: 20px;
+  font-family: "SkyMedium";
+}
+
+@keyframes shimmer {
+  0% {
+    box-shadow: 0 0 0 0 rgba(51, 49, 49, 0.772);
+    opacity: 100;
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.614);
+    opacity: 100;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.965);
+    opacity: 100;
+  }
+}
