@@ -26,6 +26,8 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
 // state for flight data loading message
   const [isLoading, setIsLoading] = useState();
+//state for flight error catching
+  const [flightError, setFlightError] = useState("");
 
   const handledepartureChange = (event) => {
     const value = event.target.value;
@@ -105,11 +107,13 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setSearchTerm("");
     setFlightDuration("");
     setFlightPrice("");
+    setFlightError("");
     
   }
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
     // The setIsLoading is set to true and displays message
+    setFlightError("");
     setIsLoading(true);
     const token = sessionStorage.getItem("jwt");
     const url = "http://18.132.251.114:9090/flight";
@@ -137,15 +141,15 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
         console.log(payload);
         // Console log an error if the response is empty.
-        if (response.data.length == 0) {
-          console.log("No Flights Available.");
+        if (response.data.length === 0) {
+          setFlightError("No Flights Available");
         }
       })
-
       .catch((error) => {
         console.log(error);
       });
   };
+  
   // The return element consists of a user form which updates the relevant states as users interact with it.
   // The submit button beings the API call for flight data.
   return (
@@ -231,6 +235,8 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 </Row>
 </Form>
 
+<p>{flightError}</p>
+
 
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
       <br />
@@ -248,9 +254,13 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
             searchTerm={searchTerm}
             flightDuration={flightDuration}
             flightPrice={flightPrice}
+            flighterror={flightError}
           />
         )
       )}
+      
+
+      
      
       {/* {flightDuration && <Weather searchTerm={searchTerm} flightDuration={flightDuration} flightPrice={flightPrice}/>} */}
     </div>
