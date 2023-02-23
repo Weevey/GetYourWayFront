@@ -207,7 +207,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
       <Form.Control
         type="number"
         min="1"
-        max="10"
+        max="9"
         value={flightAdultCount}
         onChange={handlePassengersChange}
       />
