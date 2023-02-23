@@ -72,9 +72,9 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
           
           </div>
           <Card.Body>
-          <strong><Card.Title className="text-center gradient-text">Destination</Card.Title></strong>
+          <Card.Title><h4>Destination</h4></Card.Title>
             <Card.Text className="text-center">
-            Flight Duration: {flightDuration}
+            {flightDuration}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -85,9 +85,9 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
           
           </div>
           <Card.Body>
-          <strong><Card.Title className="text-center gradient-text">Cheapest Price</Card.Title></strong>
+         <Card.Title><h4>Cheapest Price</h4></Card.Title>
             <Card.Text className="text-center">
-            ${flightPrice}
+            £{flightPrice}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -98,9 +98,11 @@ function Weather({ searchTerm, flightDuration, flightPrice}) {
           
           </div>
           <Card.Body>
-          <strong><Card.Title className="text-center gradient-text">Weather</Card.Title></strong>
+          <Card.Title><h4>Weather</h4></Card.Title>
             <Card.Text className="text-center">
-            {temperature}&#xb0;C
+            {temperature}&#xb0;C 
+            </Card.Text>
+            <Card.Text className="text-center">
             <img src={weatherInfo.object[clouds]} className="weatherIcon"/>
             </Card.Text>
           </Card.Body>

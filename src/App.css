@@ -322,8 +322,10 @@ a {
 }
 
 .SearchResultBox{
-  border-bottom: 5px solid transparent;
-  border-top: 5px solid transparent;
+  box-shadow: rgb(0 0 0 / 20%) 0 4px 2px -2px;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+
   border-image: linear-gradient(
     to right,
     #ff9e00 0%,
@@ -338,6 +340,24 @@ a {
   padding: 5px;
   padding-left: 20px;
 
+}
+
+.SearchResultBox .card-title {
+  font-family: "SkyMedium";
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* display: inline-block; */
+  color: #4a4a4a;
+  background-image: -webkit-linear-gradient(
+    left,
+    #ff9e00,
+    red 35%,
+    #b5007d 60%,
+    #21429c 85%,
+    #0071ff
+  );
+  background-size: 100%;
+  text-align: center;
 }
 .grid-item {
   padding: 15px;
