@@ -64,6 +64,9 @@ function Weather({ searchTerm, flightDuration, flightPrice }) {
     // </row>
     //   </Container>
     <Row className="SearchResultBox">
+      <Row>
+        <h1 className="gradient-text text-center">Search Results:</h1>
+      </Row>
       <Col xs={12} md={4}>
         <Card>
           <div className="text-center"></div>

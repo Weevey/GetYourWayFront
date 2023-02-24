@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -44,14 +45,12 @@
 
 .header-style {
   border-bottom: 5px solid transparent;
-  border-image: linear-gradient(
-    to right,
-    #ff9e00 0%,
-    #f00 25%,
-    #b5007d 50%,
-    #21429c 75%,
-    #0071ff 100%
-  );
+  border-image: linear-gradient(to right,
+      #ff9e00 0%,
+      #f00 25%,
+      #b5007d 50%,
+      #21429c 75%,
+      #0071ff 100%);
   border-image-slice: 1;
   width: 100%;
   font-family: "SkyMedium";
@@ -65,14 +64,12 @@
   -webkit-text-fill-color: transparent;
   /* display: inline-block; */
   color: #4a4a4a;
-  background-image: -webkit-linear-gradient(
-    left,
-    #ff9e00,
-    red 35%,
-    #b5007d 60%,
-    #21429c 85%,
-    #0071ff
-  );
+  background-image: -webkit-linear-gradient(left,
+      #ff9e00,
+      red 35%,
+      #b5007d 60%,
+      #21429c 85%,
+      #0071ff);
   background-size: 100%;
 }
 
@@ -134,7 +131,8 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Set the height to the full viewport height */
+  height: 100vh;
+  /* Set the height to the full viewport height */
   background-image: url("../src/Components/Images/loginBG.webp");
   background-size: cover;
   background-repeat: no-repeat;
@@ -183,10 +181,12 @@ a {
     box-shadow: 0 0 0 0 rgba(51, 49, 49, 0.772);
     opacity: 100;
   }
+
   50% {
     box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.614);
     opacity: 100;
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.965);
     opacity: 100;
@@ -206,6 +206,7 @@ a {
     opacity: 0;
     transform: translateX(0px);
   }
+
   to {
     opacity: 0.8;
     transform: translateX(0);
@@ -274,10 +275,12 @@ a {
   from {
     transform: rotateX(0deg) rotateY(0deg);
   }
+
   to {
     transform: rotateX(360deg) rotateY(360deg);
   }
 }
+
 .weatherIcon {
   height: 30px;
 }
@@ -327,14 +330,12 @@ a {
   border-bottom: 3px solid transparent;
   border-top: 3px solid transparent;
 
-  border-image: linear-gradient(
-    to right,
-    #ff9e00 0%,
-    #f00 25%,
-    #b5007d 50%,
-    #21429c 75%,
-    #0071ff 100%
-  );
+  border-image: linear-gradient(to right,
+      #ff9e00 0%,
+      #f00 25%,
+      #b5007d 50%,
+      #21429c 75%,
+      #0071ff 100%);
   border-image-slice: 1;
   width: 100%;
 
@@ -348,14 +349,12 @@ a {
   -webkit-text-fill-color: transparent;
   /* display: inline-block; */
   color: #4a4a4a;
-  background-image: -webkit-linear-gradient(
-    left,
-    #ff9e00,
-    red 35%,
-    #b5007d 60%,
-    #21429c 85%,
-    #0071ff
-  );
+  background-image: -webkit-linear-gradient(left,
+      #ff9e00,
+      red 35%,
+      #b5007d 60%,
+      #21429c 85%,
+      #0071ff);
   background-size: 100%;
   text-align: center;
 }
@@ -382,8 +381,9 @@ a {
 }
 
 .logout-button {
-  margin: 0 auto;
+
   margin-right: 1rem;
+  margin-bottom: 1rem;
   display: block;
   float: right;
 
@@ -426,14 +426,12 @@ a {
   padding-top: 2%;
   background: none;
   border-bottom: 5px solid transparent;
-  border-image: linear-gradient(
-    to right,
-    #ff9e00 0%,
-    #f00 25%,
-    #b5007d 50%,
-    #21429c 75%,
-    #0071ff 100%
-  );
+  border-image: linear-gradient(to right,
+      #ff9e00 0%,
+      #f00 25%,
+      #b5007d 50%,
+      #21429c 75%,
+      #0071ff 100%);
   border-image-slice: 1;
   width: 300px;
 }
@@ -446,15 +444,24 @@ a {
   font-family: "SkyMedium";
   color: rgba(248, 12, 12, 0.793);
   font-size: 20px;
-  opacity: 1;
+  
   animation: fadeIn 2s ease-in;
+  background-color: rgba(255, 255, 255, 0.6);
+
+  padding: 4px;
+  border: 5px solid transparent;
+  border-radius: 30px;
+
 }
+
+
 
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateX(0px);
   }
+
   to {
     opacity: 0.8;
     transform: translateX(0);

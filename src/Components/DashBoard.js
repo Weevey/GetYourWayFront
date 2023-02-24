@@ -27,7 +27,6 @@ const DashBoard = ({ logout }) => {
   return (
     <div>
         <Container fluid>
-        <Col xs={12} md={10}></Col>
       <Row className="justify-content-end">
         <button
           className="logout-button"
