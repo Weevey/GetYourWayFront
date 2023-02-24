@@ -8,7 +8,7 @@ import FlightSearchForm from "./FlightSearch";
 import MovieCards from "./movieLocation";
 import Footer from "./Footer";
 
-const DashBoard = () => {
+const DashBoard = ({ logout }) => {
   const [departValue, setDepartValue] = useState([55.4, 0.2]); // default
   const [destinationValue, setDestinationValue] = useState([55.4, 0.2]); // default
 
@@ -56,6 +56,14 @@ const DashBoard = () => {
       </Container>
       <br></br>
       <Footer />
+      <button
+        className="logout-button"
+        variant="outlined"
+        color="primary"
+        onClick={logout}
+      >
+        LOG OUT
+      </button>
     </div>
   );
 };
