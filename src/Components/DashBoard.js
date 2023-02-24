@@ -55,7 +55,6 @@ const DashBoard = ({ logout }) => {
         <br></br>
       </Container>
       <br></br>
-      <Footer />
       <button
         className="logout-button"
         variant="outlined"
@@ -64,6 +63,7 @@ const DashBoard = ({ logout }) => {
       >
         LOG OUT
       </button>
+      <Footer />
     </div>
   );
 };
