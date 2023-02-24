@@ -126,7 +126,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
   const handleinspireChernobyl = () => { 
 
-    setFlightDate("2023-04-02");
+    setFlightDate("2023-03-08");
     setdepartureValue("London Gatwick Airport");
     setDestinationValue("Vilnius Airport");
     setFlightAdultCount("1");
@@ -137,7 +137,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
   const handleinspireBillions = () => { 
 
-    setFlightDate("2023-02-28");
+    setFlightDate("2023-03-12");
     setdepartureValue("London Gatwick Airport");
     setDestinationValue("John F Kennedy International Airport");
     setFlightAdultCount("1");
