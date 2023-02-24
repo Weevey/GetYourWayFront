@@ -380,3 +380,30 @@ a {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.inspireme{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "SkyRegular";
+  letter-spacing: 2px;
+  text-align: center;
+  padding-top: 2%;
+  background:none;
+  border-bottom: 5px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    #ff9e00 0%,
+    #f00 25%,
+    #b5007d 50%,
+    #21429c 75%,
+    #0071ff 100%
+  );
+  border-image-slice: 1;
+  width: 300px;
+
+}
+
+.inspirecontainer{
+  padding-bottom: 20px;
+}
