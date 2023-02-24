@@ -4,6 +4,7 @@ import Weather from "./Weather";
 import axios from "axios";
 import loadingcircle from "../Components/Images/loadingcircle.svg";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import inspirebtnimage from './Images/inspirebutton.png'
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // Search term is updated in handleDestinationSuggestionClick to be the airport.city
@@ -109,6 +110,33 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setFlightPrice("");
     setFlightError("");
   };
+
+  const handleinspireBLL = () => { 
+
+    setFlightDate("2023-03-25");
+    setdepartureValue("London Gatwick Airport");
+    setDestinationValue("Monterey Peninsula Airport");
+    setFlightAdultCount("1");
+    setSearchTerm("Monterey");
+  };
+
+  const handleinspireChernobyl = () => { 
+
+    setFlightDate("2023-04-02");
+    setdepartureValue("London Gatwick Airport");
+    setDestinationValue("Vilnius Airport");
+    setFlightAdultCount("1");
+    setSearchTerm("Vilnius");
+  };
+
+  const handleinspireBillions = () => { 
+
+    setFlightDate("2023-02-28");
+    setdepartureValue("London Gatwick Airport");
+    setDestinationValue("John F Kennedy International Airport");
+    setFlightAdultCount("1");
+    setSearchTerm("New York");
+  };
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
     // The setIsLoading is set to true and displays message
@@ -152,7 +180,21 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // The return element consists of a user form which updates the relevant states as users interact with it.
   // The submit button beings the API call for flight data.
   return (
+    
     <div>
+    <div class="container-fluid inspirecontainer">
+  <Row className=" align-items-center">
+  <Col xs={12} md={4}>
+    <button className="inspireme"><img src={inspirebtnimage} width="50px" onClick={handleinspireBLL} /><p>Inspire Me Big</p> <p>Little Lies</p></button>
+    </Col>
+    <Col xs={12} md={4}>
+    <button className="inspireme"><img src={inspirebtnimage} width="50px" onClick={handleinspireChernobyl}/><p>Inspire Me</p><p>Chernobyl</p></button>
+    </Col>
+    <Col xs={12} md={4}>
+    <button className="inspireme"><img src={inspirebtnimage} width="50px" onClick={handleinspireBillions}/><p>Inspire Me</p><p>Billions</p></button>
+    </Col>
+  </Row>
+</div>
       <Form>
         <Row className="justify-content-center">
           <Form.Group as={Col} sm={3} controlId="departure-input">
