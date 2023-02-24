@@ -357,6 +357,8 @@ a {
   background-size: 100%;
   text-align: center;
 }
+
+
 .grid-item {
   padding: 15px;
   text-align: center;
@@ -370,7 +372,7 @@ a {
 }
 
 .card-text {
-  text-align: left;
+  text-align: center;
   font-family: "SkyRegular";
   font-weight: 200;
   letter-spacing: 1px;
