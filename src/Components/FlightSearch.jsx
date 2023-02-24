@@ -116,7 +116,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
   const handleinspireBLL = () => { 
 
-    setFlightDate("2023-03-25");
+    setFlightDate("2023-03-22");
     setdepartureValue("London Gatwick Airport");
     setDestinationValue("Monterey Peninsula Airport");
     setFlightAdultCount("1");
