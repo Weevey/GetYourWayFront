@@ -30,16 +30,16 @@ const Map = ({ departValue, destinationValue }) => {
   // POLYLINE BETWEEN END AND START
   const positions = [journeyStart, journeyEnd];
 
-  const pathOptions = {
-    // color: "blue",   moved to css file
-    // fillColor: "blue", moved to css file
-    weight: 5,
-    opacity: 1,
-    fillOpacity: 1,
-    smoothFactor: 100,
-    dashArray: "10 8",
-    className: "polyline",
-  };
+  // const pathOptions = {
+  //   // color: "blue",   moved to css file
+  //   // fillColor: "blue", moved to css file
+  //   weight: 5,
+  //   opacity: 1,
+  //   fillOpacity: 1,
+  //   smoothFactor: 100,
+  //   dashArray: "10 8",
+  //   className: "polyline",
+  // };
 
   const mapCentre = [
     (journeyStart[0] + journeyEnd[0]) / 2,
@@ -100,7 +100,7 @@ const Map = ({ departValue, destinationValue }) => {
           Arrival Airport <br />
         </Popup>
       </Marker>
-      <Polyline positions={positions} pathOptions={pathOptions} />
+      <Polyline positions={positions} className="polyline" />
     </MapContainer>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { SERVER_URL } from "./constants.js";
 
-
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DashBoard from "./DashBoard.js";

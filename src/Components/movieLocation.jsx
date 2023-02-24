@@ -42,11 +42,11 @@ const MovieCards = () => {
           <Card.Img className="mx-auto" variant="top" src={movie.imageSrc} />
           </div>
           <Card.Body>
-          <strong><Card.Title className="text-center gradient-text">{movie.title}</Card.Title></strong>
-            <Card.Text className="text-center">
+          <strong><Card.Title className="text-center gradient-text card-title">{movie.title}</Card.Title></strong>
+            <Card.Text className="text-center card-text">
               Filming Location: 
             </Card.Text>
-            <Card.Text className="text-center">
+            <Card.Text className="text-center card-text">
             <strong>{movie.filmingLocation}</strong>
             </Card.Text>
       

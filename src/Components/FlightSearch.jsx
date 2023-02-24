@@ -24,8 +24,10 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const [flightDestinationCode, setFlightDestinationCode] = useState("");
   // end section.
 
-// state for flight data loading message
+  // state for flight data loading message
   const [isLoading, setIsLoading] = useState();
+  //state for flight error catching
+  const [flightError, setFlightError] = useState("");
 
   const handledepartureChange = (event) => {
     const value = event.target.value;
@@ -97,7 +99,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     //  This updates the values of the states at the top of the page, using 'OnChange' in the form element.
     setFlightAdultCount(event.target.value);
   };
-  const handleClear = () => { 
+  const handleClear = () => {
     setFlightDate("");
     setdepartureValue("");
     setDestinationValue("");
@@ -105,11 +107,12 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setSearchTerm("");
     setFlightDuration("");
     setFlightPrice("");
-    
-  }
+    setFlightError("");
+  };
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
     // The setIsLoading is set to true and displays message
+    setFlightError("");
     setIsLoading(true);
     const token = sessionStorage.getItem("jwt");
     const url = "http://18.132.251.114:9090/flight";
@@ -132,126 +135,132 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
 
         setFlightPrice(response.data.price);
         setFlightDuration(response.data.duration);
-         // The setIsLoading is set to false and hides the message
+        // The setIsLoading is set to false and hides the message
         setIsLoading(false);
 
         console.log(payload);
         // Console log an error if the response is empty.
-        if (response.data.length == 0) {
-          console.log("No Flights Available.");
+        if (response.data.length === 0) {
+          setFlightError("No Flights Available");
         }
       })
-
       .catch((error) => {
         console.log(error);
       });
   };
+
   // The return element consists of a user form which updates the relevant states as users interact with it.
   // The submit button beings the API call for flight data.
   return (
     <div>
-       <Form>
-  <Row className="justify-content-center">
-    <Form.Group as={Col} sm={3} controlId="departure-input">
-      <Form.Label>Departure:</Form.Label>
-      <Form.Control
-        type="text"
-        value={departureValue}
-        onChange={handledepartureChange}
-      />
-      {departureSuggestions.length > 0 && (
-        <ul>
-          {departureSuggestions.map((airport) => (
-            <li
-              key={airport.code}
-              onClick={() => handledepartureSuggestionClick(airport)}
-            >
-              {airport.name} ({airport.code})
-            </li>
-          ))}
-        </ul>
-      )}
-    </Form.Group>
-    <Form.Group as={Col} sm={3} controlId="destination-input">
-      <Form.Label>Destination:</Form.Label>
-      <Form.Control
-        type="text"
-        value={destinationValue}
-        onChange={handleDestinationChange}
-      />
-      {destinationSuggestions.length > 0 && (
-        <ul>
-          {destinationSuggestions.map((airport) => (
-            <li
-              key={airport.code}
-              onClick={() => handleDestinationSuggestionClick(airport)}
-            >
-              {airport.name} ({airport.code})
-            </li>
-          ))}
-        </ul>
-      )}
-    </Form.Group>
+      <Form>
+        <Row className="justify-content-center">
+          <Form.Group as={Col} sm={3} controlId="departure-input">
+            <Form.Label>Departure:</Form.Label>
+            <Form.Control
+              type="text"
+              value={departureValue}
+              onChange={handledepartureChange}
+            />
+            {departureSuggestions.length > 0 && (
+              <ul>
+                {departureSuggestions.map((airport) => (
+                  <li
+                    key={airport.code}
+                    onClick={() => handledepartureSuggestionClick(airport)}
+                  >
+                    {airport.name} ({airport.code})
+                  </li>
+                ))}
+              </ul>
+            )}
+          </Form.Group>
+          <Form.Group as={Col} sm={3} controlId="destination-input">
+            <Form.Label>Destination:</Form.Label>
+            <Form.Control
+              type="text"
+              value={destinationValue}
+              onChange={handleDestinationChange}
+            />
+            {destinationSuggestions.length > 0 && (
+              <ul>
+                {destinationSuggestions.map((airport) => (
+                  <li
+                    key={airport.code}
+                    onClick={() => handleDestinationSuggestionClick(airport)}
+                  >
+                    {airport.name} ({airport.code})
+                  </li>
+                ))}
+              </ul>
+            )}
+          </Form.Group>
 
-    <Form.Group as={Col} sm={3} controlId="date-input">
-      <Form.Label>Date:</Form.Label>
-      <Form.Control
-        type="date"
-        value={flightDate}
-        onChange={handleDateChange}
-      />
-    </Form.Group>
+          <Form.Group as={Col} sm={3} controlId="date-input">
+            <Form.Label>Date:</Form.Label>
+            <Form.Control
+              type="date"
+              value={flightDate}
+              onChange={handleDateChange}
+            />
+          </Form.Group>
 
-    <Form.Group as={Col} sm={3} controlId="passengers-input">
-      <Form.Label>Passengers:</Form.Label>
-      <Form.Control
-        type="number"
-        min="1"
-        max="10"
-        value={flightAdultCount}
-        onChange={handlePassengersChange}
-      />
-    </Form.Group>
-    </Row>
-    <Row>
-    <Col sm={4} className="d-flex my-2">
-      </Col>
-  <Col sm={2} className="d-flex mx-2">
-    <Button className="mx-2" onClick={handleSearch}>
-      Search
-    </Button>
-  </Col>
-  <Col sm={2} className="d-flex mx-2">
-    <Button className="mx-2" onClick={handleClear}>
-      Clear
-    </Button>
-  </Col>
-  <Col sm={4} className="d-flex my-2">
-      </Col>
-</Row>
-</Form>
-
+          <Form.Group as={Col} sm={3} controlId="passengers-input">
+            <Form.Label>Passengers:</Form.Label>
+            <Form.Control
+              type="number"
+              min="1"
+              max="9"
+              value={flightAdultCount}
+              onChange={handlePassengersChange}
+            />
+          </Form.Group>
+        </Row>
+        <Row>
+          <br></br>
+          <Col sm={4} className="d-flex my-2"></Col>
+          <Col sm={2} className="d-flex mx-2">
+            <Button className="mx-2" onClick={handleSearch}>
+              Search
+            </Button>
+          </Col>
+          <Col sm={2} className="d-flex mx-2">
+            <Button className="mx-2" onClick={handleClear}>
+              Clear
+            </Button>
+          </Col>
+          <Col sm={4} className="d-flex my-2"></Col>
+        </Row>
+      </Form>
+      <h2 className="gradient-text">
+        <strong>{flightError}</strong>
+      </h2>
 
       {/* Conditional rendering statement.Checks if 'searchTerm' is true or not, if true the component will be rendered passing in 'searchTerm prop'. */}
       <br />
-      <br />
-     
-      {isLoading ? (
-      
-        <img src={loadingcircle} alt="Loading..." style={{ display: 'block', margin: 'auto', height: '50px', width: '50px'}}/>
-     
 
-        
+      {isLoading ? (
+        <img
+          src={loadingcircle}
+          alt="Loading..."
+          style={{
+            display: "block",
+            margin: "auto",
+            height: "50px",
+            width: "50px",
+          }}
+        />
       ) : (
         flightDuration && (
           <Weather
             searchTerm={searchTerm}
             flightDuration={flightDuration}
             flightPrice={flightPrice}
+            flighterror={flightError}
           />
         )
       )}
-     
+
       {/* {flightDuration && <Weather searchTerm={searchTerm} flightDuration={flightDuration} flightPrice={flightPrice}/>} */}
     </div>
   );

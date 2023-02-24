@@ -287,6 +287,8 @@ a {
   animation-name: poly-animation;
   stroke-dasharray: 10;
   animation-duration: 30s;
+  width: 5;
+  opacity: 1;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -313,4 +315,69 @@ a {
     stroke: #b5007d;
     stroke-dashoffset: 0;
   }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.SearchResultBox {
+  box-shadow: rgb(0 0 0 / 20%) 0 4px 2px -2px;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+
+  border-image: linear-gradient(
+    to right,
+    #ff9e00 0%,
+    #f00 25%,
+    #b5007d 50%,
+    #21429c 75%,
+    #0071ff 100%
+  );
+  border-image-slice: 1;
+  width: 100%;
+
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.SearchResultBox .card-title {
+  font-family: "SkyMedium";
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* display: inline-block; */
+  color: #4a4a4a;
+  background-image: -webkit-linear-gradient(
+    left,
+    #ff9e00,
+    red 35%,
+    #b5007d 60%,
+    #21429c 85%,
+    #0071ff
+  );
+  background-size: 100%;
+  text-align: center;
+}
+
+
+.grid-item {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  font-family: "Skymedium", sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  padding-top: 2%;
+}
+
+.card-text {
+  text-align: center;
+  font-family: "SkyRegular";
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
