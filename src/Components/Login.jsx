@@ -44,7 +44,6 @@ const Login = () => {
   } else {
     return (
       <div className="login">
-        {loginFailed && <div className="login-error"><strong>Check your username and password</strong></div>} {/* display message conditionally */}
         <br></br>
         <br></br>
         <div className="cube">
@@ -58,6 +57,14 @@ const Login = () => {
 
         <h1 className="welcome">Welcome...</h1>
         <br></br>
+        <br></br>
+        {loginFailed && (
+          <div className="login-error">
+            <strong>
+              Something isn't right, check your username and password
+            </strong>
+          </div>
+        )}
         <br></br>
         <input
           placeholder="Please enter your username"
@@ -91,4 +98,4 @@ const Login = () => {
     );
   }
 };
-export default Login
+export default Login;
