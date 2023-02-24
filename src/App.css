@@ -286,7 +286,7 @@ a {
   stroke: #b5007d;
   animation-name: poly-animation;
   stroke-dasharray: 10;
-  stroke-width: 5px;
+  /* stroke-width: 5px; */
   opacity: 1;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
