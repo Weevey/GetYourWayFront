@@ -383,7 +383,10 @@ a {
 
 .logout-button {
   margin: 0 auto;
+  margin-right: 1rem;
   display: block;
+  float: right;
+
 
   height: 50px;
   width: 120px;

@@ -26,7 +26,9 @@ const DashBoard = ({ logout }) => {
 
   return (
     <div>
-      <Row>
+        <Container fluid>
+        <Col xs={12} md={10}></Col>
+      <Row className="justify-content-end">
         <button
           className="logout-button"
           variant="outlined"
@@ -37,6 +39,7 @@ const DashBoard = ({ logout }) => {
         </button>
         <br></br>
       </Row>
+      </Container>
       <div className="App-body">
         <Container fluid>
           <Row>
