@@ -185,7 +185,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     <div class="container-fluid inspirecontainer">
   <Row className=" align-items-center">
   <Col xs={12} md={4}>
-    <button className="inspireme" nClick={handleinspireBLL}><img src={inspirebtnimage} width="50px" /><p>Inspire Me Big</p> <p>Little Lies</p></button>
+    <button className="inspireme" onClick={handleinspireBLL}><img src={inspirebtnimage} width="50px" /><p>Inspire Me Big</p> <p>Little Lies</p></button>
     </Col>
     <Col xs={12} md={4}>
     <button className="inspireme" onClick={handleinspireChernobyl}><img src={inspirebtnimage} width="50px" /><p>Inspire Me</p><p>Chernobyl</p></button>
