@@ -286,8 +286,10 @@ a {
 .polyline {
   stroke: #b5007d;
   animation-name: poly-animation;
-  /* stroke-dasharray: 10; */
+  stroke-dasharray: 10;
   animation-duration: 30s;
+  width: 5;
+  opacity: 1;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
