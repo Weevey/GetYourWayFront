@@ -44,7 +44,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const handleDestinationChange = (event) => {
     const value = event.target.value;
     setDestinationValue(value);
-
+    setFlightDuration();
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, "gi");
       return airport.name.match(regex) || airport.code.match(regex);
@@ -87,6 +87,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     console.log(destination);
     // searchTerm is passed into Weather.jsx underneath form button click.
     setSearchTerm(airport.city);
+    setFlightDuration();
 
     setDestinationSuggestions([]);
   };
@@ -94,11 +95,13 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const handleDateChange = (event) => {
     //  This updates the values of the states at the top of the page, using 'OnChange' in the form element.
     setFlightDate(event.target.value);
+    setFlightDuration();
   };
 
   const handlePassengersChange = (event) => {
     //  This updates the values of the states at the top of the page, using 'OnChange' in the form element.
     setFlightAdultCount(event.target.value);
+    setFlightDuration();
   };
   const handleClear = () => {
     setFlightDate("");
@@ -118,6 +121,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setDestinationValue("Monterey Peninsula Airport");
     setFlightAdultCount("1");
     setSearchTerm("Monterey");
+    setFlightDuration();
   };
 
   const handleinspireChernobyl = () => { 
@@ -127,6 +131,8 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setDestinationValue("Vilnius Airport");
     setFlightAdultCount("1");
     setSearchTerm("Vilnius");
+    setFlightDuration();
+    
   };
 
   const handleinspireBillions = () => { 
@@ -136,6 +142,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setDestinationValue("John F Kennedy International Airport");
     setFlightAdultCount("1");
     setSearchTerm("New York");
+    setFlightDuration();
   };
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
