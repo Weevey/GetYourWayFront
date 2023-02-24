@@ -4,7 +4,7 @@ import Weather from "./Weather";
 import axios from "axios";
 import loadingcircle from "../Components/Images/loadingcircle.svg";
 import { Row, Col, Form, Button } from "react-bootstrap";
-import inspirebtnimage from './Images/inspirebutton.png'
+import inspirebtnimage from "./Images/inspirebutton.png";
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // Search term is updated in handleDestinationSuggestionClick to be the airport.city
@@ -119,56 +119,43 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     onDestinationChange(destination);
   };
 
-  const handleinspireBLL = () => { 
-
+  const handleinspireBLL = () => {
     setFlightDate("2023-03-22");
     setdepartureValue("London Gatwick Airport");
     setDestinationValue("Monterey Peninsula Airport");
     setFlightAdultCount("1");
     setSearchTerm("Monterey");
     setFlightDuration();
-  
-    const destination = [
-      "36.58",
-      "-121.85",
-    ];
+
+    const destination = ["36.58", "-121.85"];
 
     onDestinationChange(destination);
     const departure = ["51.15", "-0.16"];
     onDepartChange(departure);
   };
 
-  const handleinspireChernobyl = () => { 
-
+  const handleinspireChernobyl = () => {
     setFlightDate("2023-03-08");
     setdepartureValue("London Gatwick Airport");
     setDestinationValue("Vilnius Airport");
     setFlightAdultCount("1");
     setSearchTerm("Vilnius");
     setFlightDuration();
-    const destination = [
-      "54.98",
-      "24.05",
-    ];
+    const destination = ["54.98", "24.05"];
 
     onDestinationChange(destination);
     const departure = ["51.15", "-0.16"];
     onDepartChange(departure);
-    
   };
 
-  const handleinspireBillions = () => { 
-
+  const handleinspireBillions = () => {
     setFlightDate("2023-03-12");
     setdepartureValue("London Gatwick Airport");
     setDestinationValue("John F Kennedy International Airport");
     setFlightAdultCount("1");
     setSearchTerm("New York");
     setFlightDuration();
-    const destination = [
-      "40.64",
-      "-73.79",
-    ];
+    const destination = ["40.64", "-73.79"];
 
     onDestinationChange(destination);
     const departure = ["51.15", "-0.16"];
@@ -217,21 +204,31 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // The return element consists of a user form which updates the relevant states as users interact with it.
   // The submit button beings the API call for flight data.
   return (
-    
     <div>
-    <div class="container-fluid inspirecontainer">
-  <Row className=" align-items-center">
-  <Col xs={12} md={4}>
-    <button className="inspireme" onClick={handleinspireBLL}><img src={inspirebtnimage} width="50px" /><p>Inspire Me Big</p> <p>Little Lies</p></button>
-    </Col>
-    <Col xs={12} md={4}>
-    <button className="inspireme" onClick={handleinspireChernobyl}><img src={inspirebtnimage} width="50px" /><p>Inspire Me</p><p>Chernobyl</p></button>
-    </Col>
-    <Col xs={12} md={4}>
-    <button className="inspireme" onClick={handleinspireBillions}><img src={inspirebtnimage} width="50px"/><p>Inspire Me</p><p>Billions</p></button>
-    </Col>
-  </Row>
-</div>
+      <div class="container-fluid inspirecontainer">
+        <Row className=" align-items-center">
+          <Col xs={12} md={4}>
+            <button className="inspireme" onClick={handleinspireBLL}>
+              <img src={inspirebtnimage} width="50px" />
+              <p>Inspire Me Big</p> <p>Little Lies</p>
+            </button>
+          </Col>
+          <Col xs={12} md={4}>
+            <button className="inspireme" onClick={handleinspireChernobyl}>
+              <img src={inspirebtnimage} width="50px" />
+              <p>Inspire Me</p>
+              <p>Chernobyl</p>
+            </button>
+          </Col>
+          <Col xs={12} md={4}>
+            <button className="inspireme" onClick={handleinspireBillions}>
+              <img src={inspirebtnimage} width="50px" />
+              <p>Inspire Me</p>
+              <p>Billions</p>
+            </button>
+          </Col>
+        </Row>
+      </div>
       <Form>
         <Row className="justify-content-center">
           <Form.Group as={Col} sm={3} controlId="departure-input">
@@ -299,12 +296,12 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
           <br></br>
           <Col sm={4} className="d-flex my-2"></Col>
           <Col sm={2} className="d-flex mx-2">
-            <Button className="mx-2" onClick={handleSearch}>
+            <Button className="logout-button" onClick={handleSearch}>
               Search
             </Button>
           </Col>
           <Col sm={2} className="d-flex mx-2">
-            <Button className="mx-2" onClick={handleClear}>
+            <Button className="logout-button" onClick={handleClear}>
               Clear
             </Button>
           </Col>

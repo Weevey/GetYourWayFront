@@ -27,6 +27,14 @@ const DashBoard = ({ logout }) => {
   return (
     <div>
       <Row>
+        <button
+          className="logout-button"
+          variant="outlined"
+          color="primary"
+          onClick={logout}
+        >
+          LOG OUT
+        </button>
         <br></br>
       </Row>
       <div className="App-body">
@@ -55,14 +63,7 @@ const DashBoard = ({ logout }) => {
         <br></br>
       </Container>
       <br></br>
-      <button
-        className="logout-button"
-        variant="outlined"
-        color="primary"
-        onClick={logout}
-      >
-        LOG OUT
-      </button>
+
       <Footer />
     </div>
   );
