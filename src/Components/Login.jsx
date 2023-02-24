@@ -8,13 +8,16 @@ import DashBoard from "./DashBoard.js";
 const Login = () => {
   const [user, setUser] = useState({ username: "", password: "" });
   const [isAuthenticated, setAuth] = useState(false);
+  const [loginFailed, setLoginFailed] = useState(false); // add state variable for login failure
 
   const handleChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
+
   const logout = () => {
     setAuth(false);
   };
+
   const login = () => {
     fetch(SERVER_URL + "login", {
       method: "POST",
@@ -25,7 +28,9 @@ const Login = () => {
         if (jwtToken !== null) {
           sessionStorage.setItem("jwt", jwtToken);
           setAuth(true);
+          setLoginFailed(false); // clear login failure state
         } else {
+          setLoginFailed(true); // set login failure state
           toast.warn("Check your username and password", {
             position: toast.POSITION.BOTTOM_LEFT,
           });
@@ -39,6 +44,9 @@ const Login = () => {
   } else {
     return (
       <div className="login">
+        {loginFailed && <div className="login-error"><strong>Check your username and password</strong></div>} {/* display message conditionally */}
+        <br></br>
+        <br></br>
         <div className="cube">
           <div class="face front"></div>
           <div class="face back"></div>
@@ -83,5 +91,4 @@ const Login = () => {
     );
   }
 };
-
-export default Login;
+export default Login
