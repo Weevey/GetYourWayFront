@@ -210,20 +210,20 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
           <Col xs={12} md={4}>
             <button className="inspireme" onClick={handleinspireBLL}>
               <img src={inspirebtnimage} width="50px" />
-              <p>Inspire Me Big</p> <p>Little Lies</p>
+              <p className="gradient-text">Inspire Me</p><p>Big Little Lies</p>
             </button>
           </Col>
           <Col xs={12} md={4}>
             <button className="inspireme" onClick={handleinspireChernobyl}>
               <img src={inspirebtnimage} width="50px" />
-              <p>Inspire Me</p>
+              <p className="gradient-text">Inspire Me</p>
               <p>Chernobyl</p>
             </button>
           </Col>
           <Col xs={12} md={4}>
             <button className="inspireme" onClick={handleinspireBillions}>
               <img src={inspirebtnimage} width="50px" />
-              <p>Inspire Me</p>
+              <p className="gradient-text">Inspire Me</p>
               <p>Billions</p>
             </button>
           </Col>
