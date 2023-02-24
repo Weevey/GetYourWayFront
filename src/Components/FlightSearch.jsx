@@ -4,6 +4,7 @@ import Weather from "./Weather";
 import axios from "axios";
 import loadingcircle from "../Components/Images/loadingcircle.svg";
 import { Row, Col, Form, Button } from "react-bootstrap";
+import inspirebtnimage from './Images/inspirebutton.png'
 
 const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // Search term is updated in handleDestinationSuggestionClick to be the airport.city
@@ -43,7 +44,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const handleDestinationChange = (event) => {
     const value = event.target.value;
     setDestinationValue(value);
-
+    setFlightDuration();
     const matches = data.filter((airport) => {
       const regex = new RegExp(`${value}`, "gi");
       return airport.name.match(regex) || airport.code.match(regex);
@@ -86,6 +87,7 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     console.log(destination);
     // searchTerm is passed into Weather.jsx underneath form button click.
     setSearchTerm(airport.city);
+    setFlightDuration();
 
     setDestinationSuggestions([]);
   };
@@ -93,11 +95,13 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   const handleDateChange = (event) => {
     //  This updates the values of the states at the top of the page, using 'OnChange' in the form element.
     setFlightDate(event.target.value);
+    setFlightDuration();
   };
 
   const handlePassengersChange = (event) => {
     //  This updates the values of the states at the top of the page, using 'OnChange' in the form element.
     setFlightAdultCount(event.target.value);
+    setFlightDuration();
   };
   const handleClear = () => {
     setFlightDate("");
@@ -108,6 +112,37 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setFlightDuration("");
     setFlightPrice("");
     setFlightError("");
+  };
+
+  const handleinspireBLL = () => { 
+
+    setFlightDate("2023-03-22");
+    setdepartureValue("London Gatwick Airport");
+    setDestinationValue("Monterey Peninsula Airport");
+    setFlightAdultCount("1");
+    setSearchTerm("Monterey");
+    setFlightDuration();
+  };
+
+  const handleinspireChernobyl = () => { 
+
+    setFlightDate("2023-04-02");
+    setdepartureValue("London Gatwick Airport");
+    setDestinationValue("Vilnius Airport");
+    setFlightAdultCount("1");
+    setSearchTerm("Vilnius");
+    setFlightDuration();
+    
+  };
+
+  const handleinspireBillions = () => { 
+
+    setFlightDate("2023-02-28");
+    setdepartureValue("London Gatwick Airport");
+    setDestinationValue("John F Kennedy International Airport");
+    setFlightAdultCount("1");
+    setSearchTerm("New York");
+    setFlightDuration();
   };
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
@@ -152,7 +187,21 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
   // The return element consists of a user form which updates the relevant states as users interact with it.
   // The submit button beings the API call for flight data.
   return (
+    
     <div>
+    <div class="container-fluid inspirecontainer">
+  <Row className=" align-items-center">
+  <Col xs={12} md={4}>
+    <button className="inspireme" onClick={handleinspireBLL}><img src={inspirebtnimage} width="50px" /><p>Inspire Me Big</p> <p>Little Lies</p></button>
+    </Col>
+    <Col xs={12} md={4}>
+    <button className="inspireme" onClick={handleinspireChernobyl}><img src={inspirebtnimage} width="50px" /><p>Inspire Me</p><p>Chernobyl</p></button>
+    </Col>
+    <Col xs={12} md={4}>
+    <button className="inspireme" onClick={handleinspireBillions}><img src={inspirebtnimage} width="50px"/><p>Inspire Me</p><p>Billions</p></button>
+    </Col>
+  </Row>
+</div>
       <Form>
         <Row className="justify-content-center">
           <Form.Group as={Col} sm={3} controlId="departure-input">

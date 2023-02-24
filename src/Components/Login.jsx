@@ -12,7 +12,9 @@ const Login = () => {
   const handleChange = (event) => {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
-
+  const logout = () => {
+    setAuth(false);
+  };
   const login = () => {
     fetch(SERVER_URL + "login", {
       method: "POST",
@@ -33,7 +35,7 @@ const Login = () => {
   };
 
   if (isAuthenticated === true) {
-    return <DashBoard />;
+    return <DashBoard logout={logout} />;
   } else {
     return (
       <div className="login">

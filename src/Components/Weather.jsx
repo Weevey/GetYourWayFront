@@ -93,10 +93,10 @@ function Weather({ searchTerm, flightDuration, flightPrice }) {
             <Card.Title>
               <h4>Weather</h4>
             </Card.Title>
-            <Card.Text className="text-center">{temperature}&#xb0;C</Card.Text>
-            <Card.Text className="text-center">
-              <img src={weatherInfo.object[clouds]} className="weatherIcon" />
-            </Card.Text>
+            <Card.Text className="text-center">{temperature}&#xb0;C <img src={weatherInfo.object[clouds]} className="weatherIcon" /></Card.Text>
+           
+            
+            
           </Card.Body>
         </Card>
       </Col>
