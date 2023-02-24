@@ -112,6 +112,11 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setFlightDuration("");
     setFlightPrice("");
     setFlightError("");
+    const departure = ["51.15", "-0.16"];
+    onDepartChange(departure);
+    const destination = ["51.15", "-0.16"];
+
+    onDestinationChange(destination);
   };
 
   const handleinspireBLL = () => { 
@@ -122,6 +127,15 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setFlightAdultCount("1");
     setSearchTerm("Monterey");
     setFlightDuration();
+  
+    const destination = [
+      "36.58",
+      "-121.85",
+    ];
+
+    onDestinationChange(destination);
+    const departure = ["51.15", "-0.16"];
+    onDepartChange(departure);
   };
 
   const handleinspireChernobyl = () => { 
@@ -132,6 +146,14 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setFlightAdultCount("1");
     setSearchTerm("Vilnius");
     setFlightDuration();
+    const destination = [
+      "54.98",
+      "24.05",
+    ];
+
+    onDestinationChange(destination);
+    const departure = ["51.15", "-0.16"];
+    onDepartChange(departure);
     
   };
 
@@ -143,6 +165,14 @@ const FlightSearchForm = ({ onDepartChange, onDestinationChange }) => {
     setFlightAdultCount("1");
     setSearchTerm("New York");
     setFlightDuration();
+    const destination = [
+      "40.64",
+      "-73.79",
+    ];
+
+    onDestinationChange(destination);
+    const departure = ["51.15", "-0.16"];
+    onDepartChange(departure);
   };
   // This is run when the user clicks the for button. It processes the API request.
   const handleSearch = () => {
