@@ -100,7 +100,7 @@ const Map = ({ departValue, destinationValue }) => {
           Arrival Airport <br />
         </Popup>
       </Marker>
-      <Polyline positions={positions} className="polyline" />
+      <Polyline className="polyline" positions={positions}  />
     </MapContainer>
   );
 };
